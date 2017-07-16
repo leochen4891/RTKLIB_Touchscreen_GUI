@@ -28,6 +28,8 @@
 #include <fstream>
 #include <string>
 #include <QList>
+#include <QTextStream>
+#include <QFile>
 
 using namespace std;
 
@@ -45,6 +47,31 @@ MainThread ::MainThread(QObject* parent):
 QThread(parent)
 {
     stopped = false;
+
+    // Chargement des paramètres de sauvegarde :
+    QFile sauveOptionFile(QString("../RTKBASE/data/SauveOptions"));
+    QTextStream flux(&sauveOptionFile);
+    sauveOptionFile.open(QFile::ReadOnly|QFile::Truncate);
+    QString line;
+    QStringList liste;
+    while(!flux.atEnd())
+    {
+        line = flux.readLine();
+        qDebug()<<line;
+        liste<<line;
+    }
+    sauveOptionFile.close();
+
+    for(int i=0;i<liste.length();i++)
+    {
+        QStringList decomp = liste[i].remove("=").split(" ",QString::SkipEmptyParts);
+        if(decomp[0]=="filepath")  _filePath = decomp[1];
+        else if(decomp[0]=="pointname") _pointName = decomp[1];
+        else if(decomp[0]=="nummeas") _numOfMeasures = decomp[1].toInt();
+        else if(decomp[0]=="cyclen") _cycleLength = decomp[1].toFloat();
+        else if(decomp[0]=="oldpoint") _addMeasures = decomp[1].toInt();
+        else std::cout<<"Le paramètre <"<<decomp[0].toStdString()<<"> n'a pas été reconnu"<<std::endl;
+    }
 }
 
 MainThread::~MainThread()
@@ -123,7 +150,7 @@ void MainThread::run()
         if (m_choix==2) etatsatellite();
         if (m_choix==3) etatNaviData();
         if (m_choix==5) etatStream();
-        if (m_choix==6) sauvegardedansfichier();
+        if (m_choix==6) sauvegardedansfichier(_filePath,_pointName,_numOfMeasures,_cycleLength,_addMeasures);
         if (m_choix==7) stop();
         }
 
@@ -256,75 +283,98 @@ void MainThread::saveposition()
     qDebug()<<"le bouton save fonctionne";
     emit save(1);
     m_choix=6;
+    //sauvegardedansfichier();
 }
 
-void MainThread::sauvegardedansfichier()
+void MainThread::sauvegardedansfichier(QString filePath, QString pointName, int numOfMeasures, float cycleLength, bool addMeasures)
 {
-
-    /*------crée le fichier "tampon"------------------*/
-    std::ofstream o("essaiprojet.txt");
-
-    /*Launch function of rtkrcv.c relative to the solution to print*/
-    affichestatus(&vt);
-
-    /*Open, read line by line and then close file*/
-    int i=1;
-    QStringList list;
-    QString fileName = "essaiprojet.txt";
-    QFile fichier(fileName);
-    fichier.open(QIODevice::ReadOnly | QIODevice::Text);
-    /*check if file is opened*/
-    QTextStream flux(&fichier);
-    QString ligne;
-    while(! flux.atEnd())
+    std::cout<<"Commençons la sauvegarde..."<<std::endl;
+    if (addMeasures==false)
     {
-        ligne = flux.readLine();
-        //traitement de la ligne
-        qDebug()<<ligne;
-        list<<ligne;
-        i=i+1;
+        QFile(filePath).remove();
+        m_k=0;
     }
-    fichier.close();
-    /*delete buffer file*/
-    remove("essaiprojet.txt");
-    /*----------------------------------------------*/
-
-
-    QString str;
-    if(m_k==0)
+    for(int k=0;k<numOfMeasures;k++)
     {
-        str=list[13];
-        str.replace("/","");
-        str.replace(" ","_");
-        str.replace(":","");
-        qDebug()<<str;
-        QString z=str.mid(15);
-        str.remove(z);// horaire type GDH: groupe/date/heure
-        NomFichier=str+".txt";
-        qDebug()<<NomFichier;
+        QString pointNameCurrent;
+        if(pointName==QString("")) pointNameCurrent=QString::number(m_k);
+        else pointNameCurrent=pointName;
+        /*------crée le fichier "tampon"------------------*/
+        std::ofstream o("essaiprojet.txt");
+
+        /*Launch function of rtkrcv.c relative to the solution to print*/
+        affichestatus(&vt);
+
+        /*Open, read line by line and then close file*/
+        int i=1;
+        QStringList list;
+        QString fileName = "essaiprojet.txt";
+        QFile fichier(fileName);
+        fichier.open(QIODevice::ReadOnly | QIODevice::Text);
+        /*check if file is opened*/
+        QTextStream flux(&fichier);
+        QString ligne;
+        while(! flux.atEnd())
+        {
+            ligne = flux.readLine();
+            //traitement de la ligne
+            qDebug()<<ligne;
+            list<<ligne;
+            i=i+1;
+        }
+        fichier.close();
+        //emit emitdonneesStatus(list);
+        /*delete buffer file*/
+        //remove("essaiprojet.txt");
+        /*----------------------------------------------*/
+
+
+        QString str;
+        if(m_k==0)
+        {
+            str=list[13];
+            str.replace("/","");
+            str.replace(" ","_");
+            str.replace(":","");
+            qDebug()<<str;
+            QString z=str.mid(15);
+            str.remove(z);// horaire type GDH: groupe/date/heure
+            NomFichier=str+".txt";
+            qDebug()<<NomFichier;
+        }
+
+        //QFile fichiersauvegarde(NomFichier);
+        QFile fichiersauvegarde(filePath);
+
+
+        //sleep(1);
+
+        fichiersauvegarde.open(QIODevice::Append | QIODevice::Text);
+
+
+        /*Save points in NomFichier in Folder*/
+
+        QTextStream out(&fichiersauvegarde);
+        out << "point  : "<<pointNameCurrent<<" mesure : "<<m_k<<" heure rover : "<<list[13]<<" latitude :"<<list[4] <<" longitude :"<<list[5]<<" hauteur :"<<list[6]<<" X : "<<list[1]<<" Y :"<<list[2]<<" Z : "<<list[3]<<'\n';
+        emit savePointNbr(pointNameCurrent.append(" ").append(QString::number(m_k)));
+        fichiersauvegarde.close();
+
+        sleep(cycleLength);
+
+        m_k=m_k+1;
     }
-
-    QFile fichiersauvegarde(NomFichier);
-
-
-    sleep(1);
-
-    fichiersauvegarde.open(QIODevice::Append | QIODevice::Text);
-
-
-    /*Save points in NomFichier in Folder*/
-
-    QTextStream out(&fichiersauvegarde);
-    out << "point numero :"<<m_k<<" heure rover : "<<list[13]<<" latitude :"<<list[4] <<" longitude :"<<list[5]<<" hauteur :"<<list[6]<<" X : "<<list[1]<<" Y :"<<list[2]<<" Z : "<<list[3]<<'\n';
-    emit savePointNbr(m_k);
-    fichiersauvegarde.close();
-
-    sleep(1);
-
-    m_k=m_k+1;
-
     m_choix=1;//pour retour dans la boucle du Thread
+    std::cout<<"On est sorti de la boucle, mais le pire est à venir !"<<std::endl;
 
 
 }
 
+void MainThread::changeSaveOptions(QStringList options)
+{
+    _filePath = options[0];
+    if (_pointName!=options[1]) m_k=0;
+    _pointName = options[1];
+     _numOfMeasures = options[2].toInt();
+    _cycleLength = options[3].toFloat();
+    _addMeasures = options[4].toInt();
+}

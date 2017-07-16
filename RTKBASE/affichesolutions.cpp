@@ -4,6 +4,7 @@
 #include "MainThread.h"
 #include "options1.h"
 #include "options2.h"
+#include "optionssauvepoints.h"
 #include <iostream>
 #include <stdlib.h>
 #include <QtCore>
@@ -26,32 +27,17 @@ using namespace std;
 
 
 
-AfficheSolutions::AfficheSolutions(QWidget *parent) :
+AfficheSolutions::AfficheSolutions(QString _configFile, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AfficheSolutions),SatStatusSingleRover()
 {
 
 
 
+    configFile=_configFile;
 
-{
-
-        if (choixcalcul==1) { m_fileName1 = "../RTKBASE/ConfFiles/Single.ubx";}
-
-        if (choixcalcul==2) { m_fileName1 = "../RTKBASE/ConfFiles/SBAS.ubx";}
-
-        if (choixcalcul==3) { m_fileName1 = "../RTKBASE/ConfFiles/DGPS.ubx";}
-
-        if (choixcalcul==4) { m_fileName1 = "../RTKBASE/ConfFiles/PPP-Static.ubx";}
-
-        if (choixcalcul==5) {m_fileName1 = "../RTKBASE/ConfFiles/RTK-Static.ubx";}
-
-        if (choixcalcul==6) { m_fileName1 = "../RTKBASE/ConfFiles/RTK-Kinematic.ubx";}
-
-
-}
-
-    std::string str1 = m_fileName1.toStdString(); // transform to string.
+    std::string str1 = configFile.toStdString(); // transform to string.
+    //std::cout<<str1<<std::endl;
     ui->setupUi(this);
     ui->AfficheSolutionsgraphicsView->setScene(&SatStatusSingleRover);
     ui->AfficheSolutionsgraphicsView->setStyleSheet("background:transparent");
@@ -193,6 +179,7 @@ void AfficheSolutions::ChoixVueStream()
 
 void AfficheSolutions::recupedonneesStatus(QStringList i)
 {
+    std::cout<<"Status"<<std::endl;
     if (m_choix==1)
     {
         //ui->lineEditSatellites->hide();//car vue par défaut et donc ne passe pas par void AfficheSolutions::ChoixVueStatus()
@@ -212,6 +199,7 @@ void AfficheSolutions::recupedonneesStatus(QStringList i)
     ui->lineEditSolutionStatus1->show();
     ui->lineEditSolutionStatus2->show();
     ui->PushButtonSauvegarde->show();
+    ui->PushButtonSauveOptions->show();
     ui->MessageUserlineEdit->show();
     ui->lineEditSatRover->show();
     ui->lineEditSatBase->show();
@@ -261,7 +249,8 @@ void AfficheSolutions::recupedonneesStatus(QStringList i)
     }
     ui->AfficheSolutionsgraphicsView->setScene(&SatStatusSingleRover);
     QObject::connect(ui->PushButtonSauvegarde,SIGNAL(clicked()),m_t,SLOT(saveposition()));
-    QObject::connect(m_t,SIGNAL(savePointNbr(int)),this,SLOT(affichePointNbr(int)));
+    QObject::connect(ui->PushButtonSauveOptions,SIGNAL(clicked()),this,SLOT(sauvegardeoptions()));
+    QObject::connect(m_t,SIGNAL(savePointNbr(QString)),this,SLOT(affichePointNbr(QString)));
 
     QString str=i[4];
     QString str1=i[5];
@@ -478,6 +467,7 @@ void AfficheSolutions::initAffichage()
     ui->lineEditStream->hide();
     ui->progressBarSatellites->hide();
     ui->PushButtonSauvegarde->hide();
+    ui->PushButtonSauveOptions->hide();
     ui->widget->hide();
     ui->MessageUserlineEdit->hide();
     ui->lineEditSatRover->hide();
@@ -492,7 +482,7 @@ void AfficheSolutions::initAffichage()
 }
 
 
-void AfficheSolutions::affichePointNbr(int i)
+void AfficheSolutions::affichePointNbr(QString i)
 {
     ui->MessageUserlineEdit->setText(QString("Point %1 saved in file").arg(i));
 }
@@ -533,3 +523,11 @@ void AfficheSolutions::satchoice3()
     m_SatChoice=3;
 }
 
+void AfficheSolutions::sauvegardeoptions()
+{
+    optionssauvepoints *FenetreSaveOptions = new optionssauvepoints(m_t->_filePath,m_t->_pointName,m_t->_numOfMeasures,m_t->_cycleLength,m_t->_addMeasures);
+    QObject::connect(FenetreSaveOptions,SIGNAL(SaveOptions(QStringList)),m_t,SLOT(changeSaveOptions(QStringList)));
+    FenetreSaveOptions->setModal(true);
+    FenetreSaveOptions->setWindowFlags(Qt::FramelessWindowHint);
+    FenetreSaveOptions->exec();
+}

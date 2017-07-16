@@ -48,7 +48,7 @@ extern "C" {
 
 #define VER_RTKLIB  "2.4.2"             /* library version */
 
-#define PATCH_LEVEL "p11"               /* patch level */
+#define PATCH_LEVEL "p12"               /* patch level */
 
 #define COPYRIGHT_RTKLIB \
             "Copyright (C) 2007-2015 by T.Takasu\nAll rights reserved."
@@ -1490,7 +1490,7 @@ extern unsigned int getbitu(const unsigned char *buff, int pos, int len);
 extern int          getbits(const unsigned char *buff, int pos, int len);
 extern void setbitu(unsigned char *buff, int pos, int len, unsigned int data);
 extern void setbits(unsigned char *buff, int pos, int len, int data);
-extern unsigned int crc32  (const unsigned char *buff, int len);
+extern unsigned int rtk_crc32  (const unsigned char *buff, int len);
 extern unsigned int crc24q (const unsigned char *buff, int len);
 extern unsigned short crc16(const unsigned char *buff, int len);
 extern int decode_word (unsigned int word, unsigned char *data);

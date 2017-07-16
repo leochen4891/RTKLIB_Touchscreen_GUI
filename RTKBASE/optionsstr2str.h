@@ -1,6 +1,8 @@
 #ifndef OPTIONSSTR2STR_H
 #define OPTIONSSTR2STR_H
 #include <QDialog>
+#include <QLineEdit>
+#include "mylineedit.h"
 
 #include "affichestr2str.h"
 
@@ -39,6 +41,9 @@ private:
 
 public slots:
     void OuvreDefault1();
+    void SaveBase();
+    void LoadBase();
+    void AppelleClavier(MyLineEdit *line);
 
 
 private slots:
@@ -49,6 +54,8 @@ private slots:
     void on_radioButtonPositionManual_clicked();
 
     void on_UpdateOptionspushButton_clicked();
+
+    void Charge(QString baseFile);
 };
 
 #endif // OPTIONSSTR2STR_H

@@ -14,6 +14,9 @@
    <string>Rover Solutions</string>
   </property>
   <widget class="QGraphicsView" name="AfficheSolutionsgraphicsView">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -755,6 +758,30 @@ border: 1px solid black;
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="PushButtonSauveOptions">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>320</y>
+     <width>131</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+border: 1px solid black;
+background-color: rgb(230, 230, 230);</string>
+   </property>
+   <property name="text">
+    <string>SAVE OPTIONS</string>
+   </property>
+  </widget>
   <zorder>lineEditPosEvol</zorder>
   <zorder>widget</zorder>
   <zorder>lineEditPositionXYZ</zorder>
@@ -786,6 +813,7 @@ border: 1px solid black;
   <zorder>pushButtonSat2</zorder>
   <zorder>pushButtonSat3</zorder>
   <zorder>progressBarSatellites</zorder>
+  <zorder>PushButtonSauveOptions</zorder>
  </widget>
  <customwidgets>
   <customwidget>
