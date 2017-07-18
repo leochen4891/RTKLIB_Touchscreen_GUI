@@ -67,6 +67,11 @@ AfficheSolutions::AfficheSolutions(QString _configFile, QWidget *parent) :
     QObject::connect(ui->pushButtonSat2,SIGNAL(clicked()),this,SLOT(satchoice2()));
     QObject::connect(ui->pushButtonSat3,SIGNAL(clicked()),this,SLOT(satchoice3()));
 
+    QObject::connect(ui->PushButtonSauvegarde,SIGNAL(clicked()),m_t,SLOT(saveposition()));
+    QObject::connect(ui->PushButtonSauveOptions,SIGNAL(clicked()),this,SLOT(sauvegardeoptions()));
+    QObject::connect(m_t,SIGNAL(savePointNbr(QString)),this,SLOT(affichePointNbr(QString)));
+
+
     /*MainThread start*/
     m_t->start();
     initAffichage();
@@ -248,9 +253,6 @@ void AfficheSolutions::recupedonneesStatus(QStringList i)
     ui->MessageUserlineEdit->setText(QString(""));
     }
     ui->AfficheSolutionsgraphicsView->setScene(&SatStatusSingleRover);
-    QObject::connect(ui->PushButtonSauvegarde,SIGNAL(clicked()),m_t,SLOT(saveposition()));
-    QObject::connect(ui->PushButtonSauveOptions,SIGNAL(clicked()),this,SLOT(sauvegardeoptions()));
-    QObject::connect(m_t,SIGNAL(savePointNbr(QString)),this,SLOT(affichePointNbr(QString)));
 
     QString str=i[4];
     QString str1=i[5];
