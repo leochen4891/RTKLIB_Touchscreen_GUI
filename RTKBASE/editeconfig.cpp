@@ -60,19 +60,19 @@ void EditeConfig::Retour()
 
 void EditeConfig::ChangePosMode(int index)
 {
-    if ((index==0)||(index>=6)) ui->FrequencyBox->setEnabled(true);
+    if ((index==0)||(index>=6)) ui->FrequencyBox->setEnabled(false);
     else ui->FrequencyBox->setEnabled(true);
     if ((index==1)||(index==2)) ui->DynamicsBox->setEnabled(true);
     else
     {
-        ui->DynamicsBox->setEnabled(true);
+        ui->DynamicsBox->setEnabled(false);
         ui->DynamicsBox->setCurrentIndex(0);
     }
     if (index==0)
     {
-        ui->Posopt1CheckBox->setEnabled(true);
-        ui->Posopt2CheckBox->setEnabled(true);
-        ui->TidecorrBox->setEnabled(true);
+        ui->Posopt1CheckBox->setEnabled(false);
+        ui->Posopt2CheckBox->setEnabled(false);
+        ui->TidecorrBox->setEnabled(false);
     }
     else
     {
@@ -101,8 +101,8 @@ void EditeConfig::ChangePosMode(int index)
     }
     else
     {
-        ui->Posopt3CheckBox->setEnabled(true);
-        ui->Posopt4CheckBox->setEnabled(true);
+        ui->Posopt3CheckBox->setEnabled(false);
+        ui->Posopt4CheckBox->setEnabled(false);
     }
     if ((index>=2)&&(index<=5))
     {
@@ -111,7 +111,7 @@ void EditeConfig::ChangePosMode(int index)
     }
     else
     {
-        ui->ArmodeBox->setEnabled(true);
+        ui->ArmodeBox->setEnabled(false);
         ui->ArmodeBox->setCurrentIndex(0);
         if (ui->GloarmodeBox->itemText(1)=="ON") ui->GloarmodeBox->removeItem(1);
     }
@@ -121,11 +121,11 @@ void EditeConfig::ChangeSolFormat(int index)
 {
     if (index==3)
     {
-        ui->OutheadBox->setEnabled(true);
-        ui->TimesysBox->setEnabled(true);
-        ui->TimendecBox->setEnabled(true);
-        ui->DegformBox->setEnabled(true);
-        ui->FieldsepBox->setEnabled(true);
+        ui->OutheadBox->setEnabled(false);
+        ui->TimesysBox->setEnabled(false);
+        ui->TimendecBox->setEnabled(false);
+        ui->DegformBox->setEnabled(false);
+        ui->FieldsepBox->setEnabled(false);
     }
     else
     {
@@ -142,26 +142,45 @@ void EditeConfig::ChangeInpstrtype2(int index)
     switch (index)
     {
     case 0:
-        ui->SerialPort2Box->setEnabled(true);
-        ui->Baudrate2Box->setEnabled(true);
-        ui->Impstr2PathBox->setEnabled(true);
-        ui->Impstr2PathButton->setEnabled(true);
-        ui->Inpstr2formatBox->setEnabled(true);
+        ui->SerialPort2Box->setEnabled(false);
+        ui->Baudrate2Box->setEnabled(false);
+        ui->Impstr2PathBox->setEnabled(false);
+        ui->Impstr2PathButton->setEnabled(false);
+        ui->Impstr2StreamBox->setEnabled(false);
+        ui->Impstr2StreamButton->setEnabled(false);
+        ui->Inpstr2formatBox->setEnabled(false);
+
         break;
     case 1:
         ui->SerialPort2Box->setEnabled(true);
         ui->Baudrate2Box->setEnabled(true);
-        ui->Impstr2PathBox->setEnabled(true);
-        ui->Impstr2PathButton->setEnabled(true);
+        ui->Impstr2PathBox->setEnabled(false);
+        ui->Impstr2PathButton->setEnabled(false);
+        ui->Impstr2StreamBox->setEnabled(false);
+        ui->Impstr2StreamButton->setEnabled(false);
         ui->Inpstr2formatBox->setEnabled(true);
+
         break;
     case 2 :
-        ui->SerialPort2Box->setEnabled(true);
-        ui->Baudrate2Box->setEnabled(true);
+        ui->SerialPort2Box->setEnabled(false);
+        ui->Baudrate2Box->setEnabled(false);
         ui->Impstr2PathBox->setEnabled(true);
         ui->Impstr2PathButton->setEnabled(true);
+        ui->Impstr2StreamBox->setEnabled(false);
+        ui->Impstr2StreamButton->setEnabled(false);
         ui->Inpstr2formatBox->setEnabled(true);
         break;
+
+    case 3 :
+        ui->SerialPort2Box->setEnabled(false);
+        ui->Baudrate2Box->setEnabled(false);
+        ui->Impstr2PathBox->setEnabled(false);
+        ui->Impstr2PathButton->setEnabled(false);
+        ui->Impstr2StreamBox->setEnabled(true);
+        ui->Impstr2StreamButton->setEnabled(true);
+        ui->Inpstr2formatBox->setEnabled(true);
+        break;
+
     }
 }
 
@@ -170,22 +189,22 @@ void EditeConfig::ChangeOutstr1type(int index)
     switch (index)
     {
     case 0:
-        ui->SerialPortOutBox->setEnabled(true);
-        ui->BaudrateOutBox->setEnabled(true);
-        ui->Outstr1PathBox->setEnabled(true);
-        ui->Outstr1PathButton->setEnabled(true);
-        ui->OutstrformatBox->setEnabled(true);
+        ui->SerialPortOutBox->setEnabled(false);
+        ui->BaudrateOutBox->setEnabled(false);
+        ui->Outstr1PathBox->setEnabled(false);
+        ui->Outstr1PathButton->setEnabled(false);
+        ui->OutstrformatBox->setEnabled(false);
         break;
     case 1:
         ui->SerialPortOutBox->setEnabled(true);
         ui->BaudrateOutBox->setEnabled(true);
-        ui->Outstr1PathBox->setEnabled(true);
-        ui->Outstr1PathButton->setEnabled(true);
+        ui->Outstr1PathBox->setEnabled(false);
+        ui->Outstr1PathButton->setEnabled(false);
         ui->OutstrformatBox->setEnabled(true);
         break;
     case 2 :
-        ui->SerialPortOutBox->setEnabled(true);
-        ui->BaudrateOutBox->setEnabled(true);
+        ui->SerialPortOutBox->setEnabled(false);
+        ui->BaudrateOutBox->setEnabled(false);
         ui->Outstr1PathBox->setEnabled(true);
         ui->Outstr1PathButton->setEnabled(true);
         ui->OutstrformatBox->setEnabled(true);
@@ -198,8 +217,8 @@ void EditeConfig::ChangeLogstr1type(int index)
     switch (index)
     {
     case 0:
-        ui->Logstr1PathBox->setEnabled(true);
-        ui->Logstr1PathButton->setEnabled(true);
+        ui->Logstr1PathBox->setEnabled(false);
+        ui->Logstr1PathButton->setEnabled(false);
         break;
     case 1:
         ui->Logstr1PathBox->setEnabled(true);
@@ -304,55 +323,119 @@ void EditeConfig::Save()
     flux<<"# Fichier de configuration <<"<<ligne<<">>."<<endl;
     flux<<endl;
 
-    flux<<qSetFieldWidth(20)<<left<<"pos1-posmode"<<qSetFieldWidth(0)<<"="<<ui->PosmodeBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"console-passwd"<<qSetFieldWidth(0)<<"="<<"admin"
+       <<"     # (add password here)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"console-timetype"<<qSetFieldWidth(0)<<"="<<"gpst"
+       <<"     # (0:gpst,1:utc,2:jst,3:tow)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"console-soltype"<<qSetFieldWidth(0)<<"="<<"dms"
+       <<"     # (0:dms,1:deg,2:xyz,3:enu,4:pyl)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"console-solflag"<<qSetFieldWidth(0)<<"="<<"2"
+       <<"     # (0:off,1:std+2:age/ratio/ns)"<<endl;
+
+
+
+    flux<<qSetFieldWidth(20)<<left<<"impstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype1Box->currentText()
+       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"impstr2-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype2Box->currentText()
+       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"impstr3-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype2Box->currentText()
+       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"impstr1-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort1Box->currentText()
+       <<":"<<ui->Baudrate1Box->currentText()<<":8:n:1:off"<<endl;
+    if (ui->Inpstrtype2Box->currentIndex()==1)
+
+        flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort2Box->currentText()
+       <<":"<<ui->Baudrate2Box->currentText()<<":8:n:1:off"<<endl;
+    if (ui->Inpstrtype2Box->currentIndex()==2)
+        flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr2PathBox->text()<<endl;
+
+    else
+        flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr2StreamBox->text()<<endl;
+
+    flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<""<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"impstr1-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr1formatBox->currentText()
+       <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"impstr2-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr2formatBox->currentText()
+       <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"impstr3-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr2formatBox->currentText()
+       <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
+
+    flux<<qSetFieldWidth(20)<<left<<"outstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Outstr1typeBox->currentText()
+       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
+    if (ui->Outstr1typeBox->currentIndex()==1) flux<<qSetFieldWidth(20)<<left<<"outstr1-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort2Box->currentText()
+       <<":"<<ui->BaudrateOutBox->currentText()<<":8:n:1:off"<<endl;
+    else flux<<qSetFieldWidth(20)<<left<<"outstr1-path"<<qSetFieldWidth(0)<<"="<<ui->Outstr1PathBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"outstr1-format"<<qSetFieldWidth(0)<<"="<<ui->OutstrformatBox->currentText()
+       <<"     # (0:llh,1:xyz,2:enu,3:nmea)"<<endl;
+
+    flux<<qSetFieldWidth(20)<<left<<"logstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Logstr1typeBox->currentText()
+       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"logstr1-path"<<qSetFieldWidth(0)<<"="<<ui->Logstr1PathBox->text()<<endl;
+
+    flux<<qSetFieldWidth(20)<<left<<"misc-svrcycle"<<qSetFieldWidth(0)<<"="<<ui->SvrcycleBox->currentText()
+       <<"     # (ms)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"misc-buffsize"<<qSetFieldWidth(0)<<"="<<ui->BuffsizeBox->currentText()
+       <<"     # (bytes)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"misc-timeout"<<qSetFieldWidth(0)<<"="<<ui->TimeoutBox->currentText()
+       <<"     # (ms)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"misc-reconnect"<<qSetFieldWidth(0)<<"="<<ui->ReconnectBox->currentText()
+       <<"     # (ms)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"misc-nmeacycle"<<qSetFieldWidth(0)<<"="<<ui->NmeacycleBox->currentText()
+       <<"     # (ms)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"misc-navmsgsel"<<qSetFieldWidth(0)<<"="<<ui->NavmsgselBox->currentText()
+       <<"     # (0:all,1:rover,1:base,2:corr)"<<endl;
+
+
+
+    flux<<qSetFieldWidth(20)<<left<<"pos1-posmode"<<qSetFieldWidth(0)<<"="<<ui->PosmodeBox->currentText()
        <<"     # (0:single,1:dgps,2:kinematic,3:static,4:movingbase,5:fixed,6:ppp-kine,7:ppp-static)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos1-frequency"<<qSetFieldWidth(0)<<"="<<ui->FrequencyBox->currentIndex()+1
+    flux<<qSetFieldWidth(20)<<left<<"pos1-frequency"<<qSetFieldWidth(0)<<"="<<ui->FrequencyBox->currentText()
        <<"     # (1:l1,2:l1+l2,3:l1+l2+l5)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos1-frequency"<<qSetFieldWidth(0)<<"="<<0
+    flux<<qSetFieldWidth(20)<<left<<"pos1-soltype"<<qSetFieldWidth(0)<<"="<<"forward"
        <<"     # (0:forward,1:backward,2:combined)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos1-elmask"<<qSetFieldWidth(0)<<"="<<ui->ElmaskBox->currentText()
        <<"     # (deg)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos1-snrmask"<<qSetFieldWidth(0)<<"="<<ui->SnrmaskLine->text()
        <<"     # (dBHz)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos1-dynamics"<<qSetFieldWidth(0)<<"="<<ui->DynamicsBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"pos1-dynamics"<<qSetFieldWidth(0)<<"="<<ui->DynamicsBox->currentText()
        <<"     # (0:off,1:on)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos1-tidecorr"<<qSetFieldWidth(0)<<"="<<ui->TidecorrBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"pos1-tidecorr"<<qSetFieldWidth(0)<<"="<<ui->TidecorrBox->currentText()
        <<"     # (0:off,1:on)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos1-ionoopt"<<qSetFieldWidth(0)<<"="<<ui->IonooptBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"pos1-ionoopt"<<qSetFieldWidth(0)<<"="<<ui->IonooptBox->currentText()
        <<"     # (0:off,1:brdc,2:sbas,3:dual-freq,4:est-stec)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos1-tropopt"<<qSetFieldWidth(0)<<"="<<ui->TropoptBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"pos1-tropopt"<<qSetFieldWidth(0)<<"="<<ui->TropoptBox->currentText()
        <<"     # (0:off,1:saas,2:sbas,3:est-ztd,4:est-ztdgrad)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos1-sateph"<<qSetFieldWidth(0)<<"="<<ui->SatephBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"pos1-sateph"<<qSetFieldWidth(0)<<"="<<ui->SatephBox->currentText()
        <<"     # (0:brdc,1:precise,2:brdc+sbas,3:brdc+ssrapc,4:brdc+ssrcom)"<<endl;
-    if (ui->Posopt1CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt1"<<qSetFieldWidth(0)<<"="<<1
-       <<"     # (0:off,1:on)"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt1"<<qSetFieldWidth(0)<<"="<<0
-            <<"     # (0:off,1:on)"<<endl;
-    if (ui->Posopt2CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt2"<<qSetFieldWidth(0)<<"="<<1
-       <<"     # (0:off,1:on)"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt2"<<qSetFieldWidth(0)<<"="<<0
-            <<"     # (0:off,1:on)"<<endl;
-    if (ui->Posopt3CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt3"<<qSetFieldWidth(0)<<"="<<1
-       <<"     # (0:off,1:on)"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt3"<<qSetFieldWidth(0)<<"="<<0
-            <<"     # (0:off,1:on)"<<endl;
-    if (ui->Posopt4CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt4"<<qSetFieldWidth(0)<<"="<<1
-       <<"     # (0:off,1:on)"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt4"<<qSetFieldWidth(0)<<"="<<0
-            <<"     # (0:off,1:on)"<<endl;
-    if (ui->Posopt5CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt5"<<qSetFieldWidth(0)<<"="<<1
-       <<"     # (0:off,1:on)"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt"<<qSetFieldWidth(0)<<"="<<0
-            <<"     # (0:off,1:on)"<<endl;
+//    if (ui->Posopt1CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt1"<<qSetFieldWidth(0)<<"="<<"on"
+//       <<"     # (0:off,1:on)"<<endl;
+//    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt1"<<qSetFieldWidth(0)<<"="<<"off"
+//            <<"     # (0:off,1:on)"<<endl;
+//    if (ui->Posopt2CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt2"<<qSetFieldWidth(0)<<"="<<"on"
+//       <<"     # (0:off,1:on)"<<endl;
+//    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt2"<<qSetFieldWidth(0)<<"="<<"off"
+//            <<"     # (0:off,1:on)"<<endl;
+//    if (ui->Posopt3CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt3"<<qSetFieldWidth(0)<<"="<<"on"
+//       <<"     # (0:off,1:on)"<<endl;
+//    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt3"<<qSetFieldWidth(0)<<"="<<"off"
+//            <<"     # (0:off,1:on)"<<endl;
+//    if (ui->Posopt4CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt4"<<qSetFieldWidth(0)<<"="<<"on"
+//       <<"     # (0:off,1:on)"<<endl;
+//    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt4"<<qSetFieldWidth(0)<<"="<<"off"
+//            <<"     # (0:off,1:on)"<<endl;
+//    if (ui->Posopt5CheckBox->isChecked()) flux<<qSetFieldWidth(20)<<left<<"pos1-posopt5"<<qSetFieldWidth(0)<<"="<<"on"
+//       <<"     # (0:off,1:on)"<<endl;
+//    else flux<<qSetFieldWidth(20)<<left<<"pos1-posopt"<<qSetFieldWidth(0)<<"="<<"off"
+//            <<"     # (0:off,1:on)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos1-exclsats"<<qSetFieldWidth(0)<<"="<<ui->ExclsatsLine->text()
        <<"     # (prn ...)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos1-navsys"<<qSetFieldWidth(0)<<"="<<ui->NavsysGPSCheckBox->isChecked()
           +ui->NavsysSBASCheckBox->isChecked()*2+ui->NavsysGLONASSCheckBox->isChecked()*4
           +ui->NavsysGalileoCheckBox->isChecked()*8+ui->NavsysQZSSCheckBox->isChecked()*16
           +ui->NavsysBeiDouCheckBox->isChecked()*32<<"     # (1:gps+2:sbas+4:glo+8:gal+16:qzs+32:comp)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos2-armode"<<qSetFieldWidth(0)<<"="<<ui->ArmodeBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"pos2-armode"<<qSetFieldWidth(0)<<"="<<ui->ArmodeBox->currentText()
        <<"     # (0:off,1:continuous,2:instantaneous,3:fix-and-hold)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos2-gloarmode"<<qSetFieldWidth(0)<<"="<<ui->GloarmodeBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"pos2-gloarmode"<<qSetFieldWidth(0)<<"="<<ui->GloarmodeBox->currentText()
        <<"     # (0:off,1:on,2:autocal)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-arthres"<<qSetFieldWidth(0)<<"="<<ui->ArthresBox->currentText()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-arlockcnt"<<qSetFieldWidth(0)<<"="<<ui->ArlockcntBox->currentText()<<endl;
@@ -374,65 +457,44 @@ void EditeConfig::Save()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-basesig"<<qSetFieldWidth(0)<<"="<<ui->BasesigLine->text()
        <<"     # (m)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr1-type"<<qSetFieldWidth(0)<<"="<<1
-       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr1-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort1Box->currentText()
-       <<":"<<ui->Baudrate1Box->currentText()<<":8:n:1:off"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr1-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr1formatBox->currentText()
-       <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr2-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype2Box->currentIndex()
-       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
-    if (ui->Inpstrtype2Box->currentIndex()==1) flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort2Box->currentText()
-       <<":"<<ui->Baudrate2Box->currentText()<<":8:n:1:off"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr2PathBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr2-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr2formatBox->currentText()
-       <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"outstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Outstr1typeBox->currentIndex()
-       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
-    if (ui->Outstr1typeBox->currentIndex()==1) flux<<qSetFieldWidth(20)<<left<<"outstr1-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort2Box->currentText()
-       <<":"<<ui->BaudrateOutBox->currentText()<<":8:n:1:off"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"outstr1-path"<<qSetFieldWidth(0)<<"="<<ui->Outstr1PathBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"outstr1-format"<<qSetFieldWidth(0)<<"="<<ui->OutstrformatBox->currentText()
+
+    flux<<qSetFieldWidth(20)<<left<<"out-solformat"<<qSetFieldWidth(0)<<"="<<ui->SolformatBox->currentText()
        <<"     # (0:llh,1:xyz,2:enu,3:nmea)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"logstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Logstr1typeBox->currentIndex()
-       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"logstr1-path"<<qSetFieldWidth(0)<<"="<<ui->Logstr1PathBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"out-solformat"<<qSetFieldWidth(0)<<"="<<ui->SolformatBox->currentIndex()
-       <<"     # (0:llh,1:xyz,2:enu,3:nmea)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"out-outstat"<<qSetFieldWidth(0)<<"="<<ui->OutstatBox->currentIndex()
+
+    flux<<qSetFieldWidth(20)<<left<<"out-outstat"<<qSetFieldWidth(0)<<"="<<ui->OutstatBox->currentText()
        <<"     # (0:off,1:state,2:residual)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"out-outhead"<<qSetFieldWidth(0)<<"="<<ui->OutheadBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"out-outhead"<<qSetFieldWidth(0)<<"="<<ui->OutheadBox->currentText()
        <<"     # (0:off,1:on)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"out-outopt"<<qSetFieldWidth(0)<<"="<<0
+    flux<<qSetFieldWidth(20)<<left<<"out-outopt"<<qSetFieldWidth(0)<<"="<<"off"
        <<"     # (0:off,1:on)"<<endl;
     if (ui->TimesysBox->currentIndex()<2)
     {
-        flux<<qSetFieldWidth(20)<<left<<"out-timesys"<<qSetFieldWidth(0)<<"="<<0
+        flux<<qSetFieldWidth(20)<<left<<"out-timesys"<<qSetFieldWidth(0)<<"="<<"gpst"
            <<"     # (0:gpst,1:utc,2:jst)"<<endl;
-        flux<<qSetFieldWidth(20)<<left<<"out-timeform"<<qSetFieldWidth(0)<<"="<<ui->TimesysBox->currentIndex()
+        flux<<qSetFieldWidth(20)<<left<<"out-timeform"<<qSetFieldWidth(0)<<"="<<ui->TimesysBox->currentText()
            <<"     # (0:tow,1:hms)"<<endl;
     }
     else
     {
-        flux<<qSetFieldWidth(20)<<left<<"out-timesys"<<qSetFieldWidth(0)<<"="<<ui->TimesysBox->currentIndex()-1
+        flux<<qSetFieldWidth(20)<<left<<"out-timesys"<<qSetFieldWidth(0)<<"="<<ui->TimesysBox->currentText()
            <<"     # (0:gpst,1:utc,2:jst)"<<endl;
-        flux<<qSetFieldWidth(20)<<left<<"out-timeform"<<qSetFieldWidth(0)<<"="<<1
+        flux<<qSetFieldWidth(20)<<left<<"out-timeform"<<qSetFieldWidth(0)<<"="<<"hms"
            <<"     # (0:tow,1:hms)"<<endl;
     }
     flux<<qSetFieldWidth(20)<<left<<"out-timendec"<<qSetFieldWidth(0)<<"="<<ui->TimendecBox->currentText()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"out-degform"<<qSetFieldWidth(0)<<"="<<ui->DegformBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"out-degform"<<qSetFieldWidth(0)<<"="<<ui->DegformBox->currentText()
        <<"     # (0:deg,1:dms)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"out-fieldsep"<<qSetFieldWidth(0)<<"="<<ui->FieldsepBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"out-height"<<qSetFieldWidth(0)<<"="<<ui->HeightBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"out-height"<<qSetFieldWidth(0)<<"="<<ui->HeightBox->currentText()
        <<"     # (0:ellipsoidal,1:geodetic)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"out-geoid"<<qSetFieldWidth(0)<<"="<<ui->GeoidBox->currentIndex()
+    flux<<qSetFieldWidth(20)<<left<<"out-geoid"<<qSetFieldWidth(0)<<"="<<ui->GeoidBox->currentText()
        <<"     # (0:internal,1:egm96,2:egm08_2.5,3:egm08_1,4:gsi2000)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"out-nmeaintv1"<<qSetFieldWidth(0)<<"="<<ui->Nmeaintv1Box->text()
        <<"     # (s)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"out-nmeaintv2"<<qSetFieldWidth(0)<<"="<<ui->Nmeaintv2Box->text()
        <<"     # (s)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"stats-eratio1"<<qSetFieldWidth(0)<<"="<<ui->Eratio1Box->currentText()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"stats-eratio2"<<qSetFieldWidth(0)<<"="<<ui->Eratio2Box->currentText()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"stats-erratio"<<qSetFieldWidth(0)<<"="<<ui->Eratio1Box->currentText()<<endl;
+//    flux<<qSetFieldWidth(20)<<left<<"stats-eratio2"<<qSetFieldWidth(0)<<"="<<ui->Eratio2Box->currentText()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-errphase"<<qSetFieldWidth(0)<<"="<<ui->ErrphaseBox->currentText()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-errphaseel"<<qSetFieldWidth(0)<<"="<<ui->ErrphaseelBox->currentText()
@@ -453,17 +515,11 @@ void EditeConfig::Save()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-clkstab"<<qSetFieldWidth(0)<<"="<<ui->ClckstabBox->currentText()
        <<"     # (s/s)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-satantfile"<<qSetFieldWidth(0)<<"="<<ui->SatantfileBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-rcvantfile"<<qSetFieldWidth(0)<<"="<<ui->RcvantfileBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-geoidfile"<<qSetFieldWidth(0)<<"="<<ui->GeoidfileBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-dcbfile"<<qSetFieldWidth(0)<<"="<<ui->DcbfileBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-eopfile"<<qSetFieldWidth(0)<<"="<<ui->EopfileBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-blqfile"<<qSetFieldWidth(0)<<"="<<ui->BlqfileBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-tempdir"<<qSetFieldWidth(0)<<"="<<ui->TempdirBox->text()<<endl;
-    if (ui->RovpostypeBox->currentIndex()<2) flux<<qSetFieldWidth(20)<<left<<"ant1-postype"<<qSetFieldWidth(0)<<"="<<ui->RovpostypeBox->currentIndex()
+//    if (ui->RovpostypeBox->currentIndex()<2)
+        flux<<qSetFieldWidth(20)<<left<<"ant1-postype"<<qSetFieldWidth(0)<<"="<<ui->RovpostypeBox->currentText()
        <<"     # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"ant1-postype"<<qSetFieldWidth(0)<<"="<<5
-            <<"     # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)"<<endl;
+//    else flux<<qSetFieldWidth(20)<<left<<"ant1-postype"<<qSetFieldWidth(0)<<"="<<5
+//            <<"     # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"ant1-pos1"<<qSetFieldWidth(0)<<"="<<ui->Rovpos1Box->text()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"ant1-pos2"<<qSetFieldWidth(0)<<"="<<ui->Rovpos2Box->text()
@@ -477,10 +533,11 @@ void EditeConfig::Save()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"ant1-antdelu"<<qSetFieldWidth(0)<<"="<<ui->RovantdeluBox->text()
        <<"     # (m)"<<endl;
-    if (ui->BspostypeBox->currentIndex()<2) flux<<qSetFieldWidth(20)<<left<<"ant1-postype"<<qSetFieldWidth(0)<<"="<<ui->BspostypeBox->currentIndex()
+//    if (ui->BspostypeBox->currentIndex()<2)
+        flux<<qSetFieldWidth(20)<<left<<"ant2-postype"<<qSetFieldWidth(0)<<"="<<ui->BspostypeBox->currentText()
        <<"     # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)"<<endl;
-    else flux<<qSetFieldWidth(20)<<left<<"ant1-postype"<<qSetFieldWidth(0)<<"="<<5
-            <<"     # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)"<<endl;
+//    else flux<<qSetFieldWidth(20)<<left<<"ant1-postype"<<qSetFieldWidth(0)<<"="<<5
+//            <<"     # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"ant2-pos1"<<qSetFieldWidth(0)<<"="<<ui->Bspos1Box->text()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"ant2-pos2"<<qSetFieldWidth(0)<<"="<<ui->Bspos2Box->text()
@@ -494,23 +551,20 @@ void EditeConfig::Save()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"ant2-antdelu"<<qSetFieldWidth(0)<<"="<<ui->BsantdeluBox->text()
        <<"     # (m)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"mysc-svrcycle"<<qSetFieldWidth(0)<<"="<<ui->SvrcycleBox->currentText()
-       <<"     # (ms)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"mysc-buffsize"<<qSetFieldWidth(0)<<"="<<ui->BuffsizeBox->currentText()
-       <<"     # (bytes)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"mysc-timeout"<<qSetFieldWidth(0)<<"="<<ui->TimeoutBox->currentText()
-       <<"     # (ms)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"mysc-reconnect"<<qSetFieldWidth(0)<<"="<<ui->ReconnectBox->currentText()
-       <<"     # (ms)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"mysc-nmeacycle"<<qSetFieldWidth(0)<<"="<<ui->NmeacycleBox->currentText()
-       <<"     # (ms)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"mysc-fswapmargin"<<qSetFieldWidth(0)<<"="<<ui->FswapmarginBox->currentText()
-       <<"     # (s)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"mysc-navmsgsel"<<qSetFieldWidth(0)<<"="<<ui->NavmsgselBox->currentIndex()
-       <<"     # (0:all,1:rover,1:base,2:corr)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"misc-proxyadr"<<qSetFieldWidth(0)<<"="<<ui->ProxyadrBox->text()<<endl;
+//    flux<<qSetFieldWidth(20)<<left<<"mysc-fswapmargin"<<qSetFieldWidth(0)<<"="<<ui->FswapmarginBox->currentText()
+//       <<"     # (s)"<<endl;
+//    flux<<qSetFieldWidth(20)<<left<<"misc-proxyadr"<<qSetFieldWidth(0)<<"="<<ui->ProxyadrBox->text()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"misc-sbasatsel"<<qSetFieldWidth(0)<<"="<<ui->SbasatselBox->text()
        <<"     # (0:all)"<<endl;
+
+    flux<<qSetFieldWidth(20)<<left<<"file-satantfile"<<qSetFieldWidth(0)<<"="<<ui->SatantfileBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-rcvantfile"<<qSetFieldWidth(0)<<"="<<ui->RcvantfileBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-geoidfile"<<qSetFieldWidth(0)<<"="<<ui->GeoidfileBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-dcbfile"<<qSetFieldWidth(0)<<"="<<ui->DcbfileBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-eopfile"<<qSetFieldWidth(0)<<"="<<ui->EopfileBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-blqfile"<<qSetFieldWidth(0)<<"="<<ui->BlqfileBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-tempdir"<<qSetFieldWidth(0)<<"="<<ui->TempdirBox->text()<<endl;
+
 
     file.close();
 

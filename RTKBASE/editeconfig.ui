@@ -19,7 +19,7 @@
      <x>265</x>
      <y>10</y>
      <width>270</width>
-     <height>40</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -48,9 +48,9 @@ border: 1px solid black;
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>60</y>
+     <y>50</y>
      <width>780</width>
-     <height>360</height>
+     <height>371</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -80,49 +80,49 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Single</string>
+       <string>single</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>DGPS/DGNSS</string>
+       <string>dgps</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Kinematic</string>
+       <string>kinematic</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Static</string>
+       <string>static</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Moving-Base</string>
+       <string>movingbase</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Fixed</string>
+       <string>fixed</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>PPP Kinematic</string>
+       <string>ppp-kine</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>PPP Static</string>
+       <string>ppp-static</string>
       </property>
      </item>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>50</x>
        <y>10</y>
        <width>131</width>
        <height>40</height>
@@ -138,7 +138,7 @@ border: 1px solid black;
      </property>
      <property name="geometry">
       <rect>
-       <x>420</x>
+       <x>480</x>
        <y>10</y>
        <width>131</width>
        <height>40</height>
@@ -168,24 +168,24 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>L1</string>
+       <string>l1</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>L1+L2</string>
+       <string>l1+l2</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>L1+L2+L5</string>
+       <string>l1+l2+l5</string>
       </property>
      </item>
     </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>50</x>
        <y>60</y>
        <width>141</width>
        <height>40</height>
@@ -198,7 +198,7 @@ border: 1px solid black;
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>420</x>
+       <x>480</x>
        <y>60</y>
        <width>141</width>
        <height>40</height>
@@ -211,7 +211,7 @@ border: 1px solid black;
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>50</x>
        <y>110</y>
        <width>141</width>
        <height>40</height>
@@ -238,26 +238,26 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>OFF</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>ON</string>
+       <string>on</string>
       </property>
      </item>
     </widget>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>420</x>
+       <x>480</x>
        <y>110</y>
-       <width>161</width>
+       <width>121</width>
        <height>40</height>
       </rect>
      </property>
      <property name="text">
-      <string>Earth Tides Correction</string>
+      <string>Tides Correction</string>
      </property>
     </widget>
     <widget class="QComboBox" name="TidecorrBox">
@@ -277,12 +277,12 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>OFF</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Solid</string>
+       <string>on</string>
       </property>
      </item>
     </widget>
@@ -316,42 +316,27 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>OFF</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Broadcast</string>
+       <string>brdc</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>SBAS</string>
+       <string>sbas</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Iono-Free LC</string>
+       <string>dual-freq</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Estimate STEC</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>IONEX TEC</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>QZSS Broadcast</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>QZSS LEX</string>
+       <string>est-stec</string>
       </property>
      </item>
     </widget>
@@ -385,27 +370,27 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>OFF</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Saastamoinen</string>
+       <string>saas</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>SBAS</string>
+       <string>sbas</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Estimate ZTD</string>
+       <string>est-ztd</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Estimate ZTD+GRAD</string>
+       <string>est-ztdgrad</string>
       </property>
      </item>
     </widget>
@@ -419,34 +404,34 @@ border: 1px solid black;
       </rect>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <property name="frame">
       <bool>true</bool>
      </property>
      <item>
       <property name="text">
-       <string>Broadcast</string>
+       <string>brdc</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Precise</string>
+       <string>precise</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Broadcast+SBAS</string>
+       <string>brdc+sbas</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Broadcast+SSR APC</string>
+       <string>brdc+ssrapc</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Broadcast+SSR CoM</string>
+       <string>brdc+ssrcom</string>
       </property>
      </item>
     </widget>
@@ -796,22 +781,22 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>OFF</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Continuous</string>
+       <string>continuous</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Instantaneous</string>
+       <string>instantaneous</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Fix and Hold</string>
+       <string>fix-and-hold</string>
       </property>
      </item>
     </widget>
@@ -828,24 +813,24 @@ border: 1px solid black;
       <bool>false</bool>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="frame">
       <bool>true</bool>
      </property>
      <item>
       <property name="text">
-       <string>OFF</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>ON</string>
+       <string>on</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Auto calibration</string>
+       <string>autocal</string>
       </property>
      </item>
     </widget>
@@ -1604,10 +1589,10 @@ border: 1px solid black;
     <widget class="MyComboBox" name="Inpstr1formatBox">
      <property name="geometry">
       <rect>
-       <x>680</x>
-       <y>50</y>
+       <x>650</x>
+       <y>30</y>
        <width>81</width>
-       <height>41</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1678,10 +1663,10 @@ border: 1px solid black;
     <widget class="MyComboBox" name="Baudrate1Box">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>51</y>
-       <width>91</width>
-       <height>41</height>
+       <x>470</x>
+       <y>30</y>
+       <width>101</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1717,10 +1702,10 @@ border: 1px solid black;
     <widget class="MyComboBox" name="SerialPort1Box">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>50</y>
-       <width>171</width>
-       <height>41</height>
+       <x>270</x>
+       <y>30</y>
+       <width>121</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1739,12 +1724,12 @@ border: 1px solid black;
      </item>
      <item>
       <property name="text">
-       <string>AMA0</string>
+       <string>ttyAMA0</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>USB0</string>
+       <string>ttyUSB0</string>
       </property>
      </item>
     </widget>
@@ -1752,9 +1737,9 @@ border: 1px solid black;
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>10</y>
-       <width>111</width>
-       <height>40</height>
+       <y>0</y>
+       <width>131</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1764,16 +1749,16 @@ border: 1px solid black;
       </font>
      </property>
      <property name="text">
-      <string>Input Stream 1</string>
+      <string>INPUT STREAM 1</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_50">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>50</y>
+       <x>190</x>
+       <y>30</y>
        <width>81</width>
-       <height>40</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -1783,10 +1768,10 @@ border: 1px solid black;
     <widget class="QLabel" name="label_51">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>50</y>
+       <x>420</x>
+       <y>30</y>
        <width>51</width>
-       <height>40</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -1797,9 +1782,9 @@ border: 1px solid black;
      <property name="geometry">
       <rect>
        <x>590</x>
-       <y>50</y>
-       <width>81</width>
-       <height>40</height>
+       <y>30</y>
+       <width>61</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -1809,10 +1794,10 @@ border: 1px solid black;
     <widget class="QComboBox" name="Inpstrtype2Box">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>140</y>
-       <width>171</width>
-       <height>41</height>
+       <x>80</x>
+       <y>90</y>
+       <width>101</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1826,27 +1811,32 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Off</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Serial</string>
+       <string>serial</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>File</string>
+       <string>file</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ntripcli</string>
       </property>
      </item>
     </widget>
     <widget class="QLabel" name="label_53">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>140</y>
-       <width>81</width>
-       <height>40</height>
+       <x>40</x>
+       <y>90</y>
+       <width>41</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -1857,9 +1847,9 @@ border: 1px solid black;
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>100</y>
-       <width>111</width>
-       <height>40</height>
+       <y>60</y>
+       <width>131</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1869,16 +1859,16 @@ border: 1px solid black;
       </font>
      </property>
      <property name="text">
-      <string>Input Stream 2</string>
+      <string>INPUT STREAM 2</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_55">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>200</y>
+       <x>420</x>
+       <y>90</y>
        <width>51</width>
-       <height>40</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -1888,10 +1878,10 @@ border: 1px solid black;
     <widget class="MyComboBox" name="Inpstr2formatBox">
      <property name="geometry">
       <rect>
-       <x>680</x>
-       <y>200</y>
-       <width>81</width>
-       <height>41</height>
+       <x>650</x>
+       <y>90</y>
+       <width>91</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1965,10 +1955,10 @@ border: 1px solid black;
     <widget class="MyComboBox" name="Baudrate2Box">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>200</y>
+       <x>480</x>
+       <y>90</y>
        <width>91</width>
-       <height>41</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -2008,9 +1998,9 @@ border: 1px solid black;
      <property name="geometry">
       <rect>
        <x>590</x>
-       <y>200</y>
-       <width>81</width>
-       <height>40</height>
+       <y>90</y>
+       <width>61</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -2020,10 +2010,10 @@ border: 1px solid black;
     <widget class="MyComboBox" name="SerialPort2Box">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>200</y>
-       <width>171</width>
-       <height>41</height>
+       <x>280</x>
+       <y>90</y>
+       <width>121</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -2045,22 +2035,22 @@ border: 1px solid black;
      </item>
      <item>
       <property name="text">
-       <string>AMA0</string>
+       <string>ttyAMA0</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>USB0</string>
+       <string>ttyUSB0</string>
       </property>
      </item>
     </widget>
     <widget class="QLabel" name="label_57">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>200</y>
+       <x>200</x>
+       <y>90</y>
        <width>81</width>
-       <height>40</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -2070,10 +2060,10 @@ border: 1px solid black;
     <widget class="QLabel" name="label_59">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>260</y>
+       <x>20</x>
+       <y>130</y>
        <width>81</width>
-       <height>40</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -2083,10 +2073,10 @@ border: 1px solid black;
     <widget class="MyLineEdit" name="Impstr2PathBox">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>260</y>
+       <x>110</x>
+       <y>130</y>
        <width>611</width>
-       <height>40</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -2097,13 +2087,196 @@ border: 1px solid black;
      <property name="geometry">
       <rect>
        <x>730</x>
-       <y>260</y>
+       <y>130</y>
        <width>40</width>
-       <height>40</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
       <string>...</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="Inpstrtype1Box">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>off</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>serial</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>file</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_100">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Type</string>
+     </property>
+    </widget>
+    <widget class="MyLineEdit" name="Impstr2StreamBox">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>170</y>
+       <width>611</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_101">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>170</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stream Path</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Impstr2StreamButton">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>170</y>
+       <width>40</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_102">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>200</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>INPUT STREAM 3</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_103">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>220</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Serial Port</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_104">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>220</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Type</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_105">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>300</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stream Path</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_106">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>220</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bauds</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_107">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>220</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Format</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_108">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>260</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>File Path</string>
      </property>
     </widget>
    </widget>
@@ -2131,17 +2304,17 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Off</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Serial</string>
+       <string>serial</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>File</string>
+       <string>file</string>
       </property>
      </item>
     </widget>
@@ -2431,12 +2604,12 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Off</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>File</string>
+       <string>file</string>
       </property>
      </item>
     </widget>
@@ -2549,22 +2722,22 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Lat/Lon/Heigh</string>
+       <string>llh</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>X/Y/Z-ECEF</string>
+       <string>xyz</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>E/N/U-Baseline</string>
+       <string>enu</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>NMEA0183</string>
+       <string>nmea</string>
       </property>
      </item>
     </widget>
@@ -2601,12 +2774,12 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>OFF</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>ON</string>
+       <string>on</string>
       </property>
      </item>
     </widget>
@@ -2716,22 +2889,12 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>ssssssss.sss GPST</string>
+       <string>tow</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>hh:mm:ss GPST</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>hh:mm:ss UTC</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>hh:mm:ss JST</string>
+       <string>hms</string>
       </property>
      </item>
     </widget>
@@ -2784,12 +2947,12 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>ddd.dddddddd</string>
+       <string>deg</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>ddd mm ss.ss</string>
+       <string>dms</string>
       </property>
      </item>
     </widget>
@@ -2900,27 +3063,27 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Internal</string>
+       <string>internal</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>EGM96 - BE (15ʺ)</string>
+       <string>egm96</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>EGM2008 ‐ SE (2.5ʺ)</string>
+       <string>egm08_2.5,3</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>EGM2008 ‐ SE (1ʺ)</string>
+       <string>egm08_1,4</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>GSI2000 (1x1.5ʺ)</string>
+       <string>gsi2000</string>
       </property>
      </item>
     </widget>
@@ -2944,17 +3107,17 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Off</string>
+       <string>off</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>State</string>
+       <string>state</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Residual</string>
+       <string>residual</string>
       </property>
      </item>
     </widget>
@@ -2978,12 +3141,12 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Ellipsoidal</string>
+       <string>ellipsoidal</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Geodetic</string>
+       <string>geodetic</string>
       </property>
      </item>
     </widget>
@@ -4441,17 +4604,32 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Lat/Long/Heigh (deg/m)</string>
+       <string>llh</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>X/Y/Z-ECEF (m)</string>
+       <string>xyz</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>RTCM Station Position</string>
+       <string>single</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>posfile</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>rinexhead</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>rtcm</string>
       </property>
      </item>
     </widget>
@@ -4754,17 +4932,32 @@ border: 1px solid black;
      </property>
      <item>
       <property name="text">
-       <string>Lat/Long/Heigh (deg/m)</string>
+       <string>llh</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>X/Y/Z-ECEF (m)</string>
+       <string>xyz</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>RTCM Station Position</string>
+       <string>single</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>posfile</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>rinexhead</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>rtcm</string>
       </property>
      </item>
     </widget>
@@ -5225,29 +5418,29 @@ border: 1px solid black;
       <bool>false</bool>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <property name="frame">
       <bool>true</bool>
      </property>
      <item>
       <property name="text">
-       <string>All</string>
+       <string>all</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Rover</string>
+       <string>rover</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Base Station</string>
+       <string>base</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Correction</string>
+       <string>corr</string>
       </property>
      </item>
     </widget>
@@ -5368,7 +5561,7 @@ background-color: rgb(230, 230, 230);</string>
   <customwidget>
    <class>MyLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>mylineedit.h</header>
+   <header location="global">mylineedit.h</header>
   </customwidget>
   <customwidget>
    <class>MyComboBox</class>
