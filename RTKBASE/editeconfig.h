@@ -27,6 +27,7 @@ public slots:
     void ChangePosMode(int index);
     void ChangeSolFormat(int index);
     void ChangeInpstrtype2(int index);
+    void ChangeInpstrtype3(int index);
     void ChangeOutstr1type(int index);
     void ChangeLogstr1type(int index);
     void ChoixSatantfile();

@@ -25,6 +25,7 @@ EditeConfig::EditeConfig(QString _modeleFile, QString _configFile, QWidget *pare
     QObject::connect(ui->PosmodeBox,SIGNAL(currentIndexChanged(int)),this,SLOT(ChangePosMode(int)));
     QObject::connect(ui->SolformatBox,SIGNAL(currentIndexChanged(int)),this,SLOT(ChangeSolFormat(int)));
     QObject::connect(ui->Inpstrtype2Box,SIGNAL(currentIndexChanged(int)),this,SLOT(ChangeInpstrtype2(int)));
+    QObject::connect(ui->Inpstrtype3Box,SIGNAL(currentIndexChanged(int)),this,SLOT(ChangeInpstrtype3(int)));
     QObject::connect(ui->Outstr1typeBox,SIGNAL(currentIndexChanged(int)),this,SLOT(ChangeOutstr1type(int)));
     QObject::connect(ui->Logstr1typeBox,SIGNAL(currentIndexChanged(int)),this,SLOT(ChangeLogstr1type(int)));
 
@@ -111,7 +112,7 @@ void EditeConfig::ChangePosMode(int index)
     }
     else
     {
-        ui->ArmodeBox->setEnabled(false);
+        ui->ArmodeBox->setEnabled(true);
         ui->ArmodeBox->setCurrentIndex(0);
         if (ui->GloarmodeBox->itemText(1)=="ON") ui->GloarmodeBox->removeItem(1);
     }
@@ -183,6 +184,57 @@ void EditeConfig::ChangeInpstrtype2(int index)
 
     }
 }
+
+
+void EditeConfig::ChangeInpstrtype3(int index)
+{
+    switch (index)
+    {
+    case 0:
+        ui->SerialPort3Box->setEnabled(false);
+        ui->Baudrate3Box->setEnabled(false);
+        ui->Impstr3PathBox->setEnabled(false);
+        ui->Impstr3PathButton->setEnabled(false);
+        ui->Impstr3StreamBox->setEnabled(false);
+        ui->Impstr3StreamButton->setEnabled(false);
+        ui->Inpstr3formatBox->setEnabled(false);
+
+        break;
+    case 1:
+        ui->SerialPort3Box->setEnabled(true);
+        ui->Baudrate3Box->setEnabled(true);
+        ui->Impstr3PathBox->setEnabled(false);
+        ui->Impstr3PathButton->setEnabled(false);
+        ui->Impstr3StreamBox->setEnabled(false);
+        ui->Impstr3StreamButton->setEnabled(false);
+        ui->Inpstr3formatBox->setEnabled(true);
+
+        break;
+    case 2 :
+        ui->SerialPort3Box->setEnabled(false);
+        ui->Baudrate3Box->setEnabled(false);
+        ui->Impstr3PathBox->setEnabled(true);
+        ui->Impstr3PathButton->setEnabled(true);
+        ui->Impstr3StreamBox->setEnabled(false);
+        ui->Impstr3StreamButton->setEnabled(false);
+        ui->Inpstr3formatBox->setEnabled(true);
+        break;
+
+    case 3 :
+        ui->SerialPort3Box->setEnabled(false);
+        ui->Baudrate3Box->setEnabled(false);
+        ui->Impstr3PathBox->setEnabled(false);
+        ui->Impstr3PathButton->setEnabled(false);
+        ui->Impstr3StreamBox->setEnabled(true);
+        ui->Impstr3StreamButton->setEnabled(true);
+        ui->Inpstr3formatBox->setEnabled(true);
+        break;
+
+    }
+}
+
+
+
 
 void EditeConfig::ChangeOutstr1type(int index)
 {
@@ -338,7 +390,7 @@ void EditeConfig::Save()
        <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"impstr2-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype2Box->currentText()
        <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr3-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype2Box->currentText()
+    flux<<qSetFieldWidth(20)<<left<<"impstr3-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype3Box->currentText()
        <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"impstr1-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort1Box->currentText()
        <<":"<<ui->Baudrate1Box->currentText()<<":8:n:1:off"<<endl;
@@ -352,40 +404,76 @@ void EditeConfig::Save()
     else
         flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr2StreamBox->text()<<endl;
 
-    flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<""<<endl;
+
+    if (ui->Inpstrtype3Box->currentIndex()==1)
+
+        flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort3Box->currentText()
+       <<":"<<ui->Baudrate3Box->currentText()<<":8:n:1:off"<<endl;
+    if (ui->Inpstrtype3Box->currentIndex()==2)
+        flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr3PathBox->text()<<endl;
+
+    else
+        flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr3StreamBox->text()<<endl;
+
+
+//    flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<""<<endl;
     flux<<qSetFieldWidth(20)<<left<<"impstr1-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr1formatBox->currentText()
        <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"impstr2-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr2formatBox->currentText()
        <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr3-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr2formatBox->currentText()
+    flux<<qSetFieldWidth(20)<<left<<"impstr3-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr3formatBox->currentText()
        <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
 
+    flux<<qSetFieldWidth(20)<<left<<"inpstr2-nmeareq"<<qSetFieldWidth(0)<<"="<<"off"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"inpstr2-nmealat"<<qSetFieldWidth(0)<<"="<<"0"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"inpstr2-nmealon"<<qSetFieldWidth(0)<<"="<<"0"<<endl;
+
     flux<<qSetFieldWidth(20)<<left<<"outstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Outstr1typeBox->currentText()
+       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"outstr2-type"<<qSetFieldWidth(0)<<"="<<"off"
        <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
     if (ui->Outstr1typeBox->currentIndex()==1) flux<<qSetFieldWidth(20)<<left<<"outstr1-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort2Box->currentText()
        <<":"<<ui->BaudrateOutBox->currentText()<<":8:n:1:off"<<endl;
     else flux<<qSetFieldWidth(20)<<left<<"outstr1-path"<<qSetFieldWidth(0)<<"="<<ui->Outstr1PathBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"outstr1-format"<<qSetFieldWidth(0)<<"="<<ui->OutstrformatBox->currentText()
+
+    flux<<qSetFieldWidth(20)<<left<<"outstr2-path"<<qSetFieldWidth(0)<<"="<<""<<endl;
+
+        flux<<qSetFieldWidth(20)<<left<<"outstr1-format"<<qSetFieldWidth(0)<<"="<<ui->OutstrformatBox->currentText()
+       <<"     # (0:llh,1:xyz,2:enu,3:nmea)"<<endl;
+
+        flux<<qSetFieldWidth(20)<<left<<"outstr2-format"<<qSetFieldWidth(0)<<"="<<"llh"
        <<"     # (0:llh,1:xyz,2:enu,3:nmea)"<<endl;
 
     flux<<qSetFieldWidth(20)<<left<<"logstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Logstr1typeBox->currentText()
        <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"logstr2-type"<<qSetFieldWidth(0)<<"="<<"off"
+       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"logstr3-type"<<qSetFieldWidth(0)<<"="<<"off"
+       <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)"<<endl;
+
     flux<<qSetFieldWidth(20)<<left<<"logstr1-path"<<qSetFieldWidth(0)<<"="<<ui->Logstr1PathBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"logstr2-path"<<qSetFieldWidth(0)<<"="<<""<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"logstr3-path"<<qSetFieldWidth(0)<<"="<<""<<endl;
 
     flux<<qSetFieldWidth(20)<<left<<"misc-svrcycle"<<qSetFieldWidth(0)<<"="<<ui->SvrcycleBox->currentText()
        <<"     # (ms)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"misc-buffsize"<<qSetFieldWidth(0)<<"="<<ui->BuffsizeBox->currentText()
-       <<"     # (bytes)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"misc-timeout"<<qSetFieldWidth(0)<<"="<<ui->TimeoutBox->currentText()
        <<"     # (ms)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"misc-reconnect"<<qSetFieldWidth(0)<<"="<<ui->ReconnectBox->currentText()
        <<"     # (ms)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"misc-nmeacycle"<<qSetFieldWidth(0)<<"="<<ui->NmeacycleBox->currentText()
        <<"     # (ms)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"misc-buffsize"<<qSetFieldWidth(0)<<"="<<ui->BuffsizeBox->currentText()
+       <<"     # (bytes)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"misc-navmsgsel"<<qSetFieldWidth(0)<<"="<<ui->NavmsgselBox->currentText()
        <<"     # (0:all,1:rover,1:base,2:corr)"<<endl;
 
 
+    flux<<qSetFieldWidth(20)<<left<<"misc-startcmd"<<qSetFieldWidth(0)<<"="<<"./rtkstart.sh"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"misc-stopcmd"<<qSetFieldWidth(0)<<"="<<"./rtkshut.sh"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-cmdfile1"<<qSetFieldWidth(0)<<"="<<"../../../data/oem4_raw_1hz.cmd"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-cmdfile2"<<qSetFieldWidth(0)<<"="<<"../../../data/oem4_raw_1hz.cmd"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"file-cmdfile3"<<qSetFieldWidth(0)<<"="<<""<<endl;
 
     flux<<qSetFieldWidth(20)<<left<<"pos1-posmode"<<qSetFieldWidth(0)<<"="<<ui->PosmodeBox->currentText()
        <<"     # (0:single,1:dgps,2:kinematic,3:static,4:movingbase,5:fixed,6:ppp-kine,7:ppp-static)"<<endl;
@@ -441,15 +529,12 @@ void EditeConfig::Save()
     flux<<qSetFieldWidth(20)<<left<<"pos2-arlockcnt"<<qSetFieldWidth(0)<<"="<<ui->ArlockcntBox->currentText()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-arelmask"<<qSetFieldWidth(0)<<"="<<ui->ArelmaskBox->currentText()
        <<"     # (deg)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos2-arminfix"<<qSetFieldWidth(0)<<"="<<ui->ArminfixBox->currentText()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos2-elmaskhold"<<qSetFieldWidth(0)<<"="<<ui->ElmaskBox->currentText()
-       <<"     # (deg)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-aroutcnt"<<qSetFieldWidth(0)<<"="<<ui->AroutcntBox->currentText()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"pos2-arminfix"<<qSetFieldWidth(0)<<"="<<ui->ArminfixBox->currentText()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-slipthres"<<qSetFieldWidth(0)<<"="<<ui->SlipthresBox->currentText()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-maxage"<<qSetFieldWidth(0)<<"="<<ui->MaxageBox->currentText()
        <<"     # (s)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"pos2-rejgdop"<<qSetFieldWidth(0)<<"="<<ui->RejgdopBox->currentText()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-rejionno"<<qSetFieldWidth(0)<<"="<<ui->RejionnoBox->currentText()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-niter"<<qSetFieldWidth(0)<<"="<<ui->NiterBox->currentText()<<endl;
@@ -457,16 +542,24 @@ void EditeConfig::Save()
        <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"pos2-basesig"<<qSetFieldWidth(0)<<"="<<ui->BasesigLine->text()
        <<"     # (m)"<<endl;
-
     flux<<qSetFieldWidth(20)<<left<<"out-solformat"<<qSetFieldWidth(0)<<"="<<ui->SolformatBox->currentText()
        <<"     # (0:llh,1:xyz,2:enu,3:nmea)"<<endl;
-
-    flux<<qSetFieldWidth(20)<<left<<"out-outstat"<<qSetFieldWidth(0)<<"="<<ui->OutstatBox->currentText()
-       <<"     # (0:off,1:state,2:residual)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"out-outhead"<<qSetFieldWidth(0)<<"="<<ui->OutheadBox->currentText()
        <<"     # (0:off,1:on)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"out-outopt"<<qSetFieldWidth(0)<<"="<<"off"
        <<"     # (0:off,1:on)"<<endl;
+//    flux<<qSetFieldWidth(20)<<left<<"pos2-elmaskhold"<<qSetFieldWidth(0)<<"="<<ui->ElmaskBox->currentText()
+//       <<"     # (deg)"<<endl;
+
+
+
+//    flux<<qSetFieldWidth(20)<<left<<"pos2-rejgdop"<<qSetFieldWidth(0)<<"="<<ui->RejgdopBox->currentText()<<endl;
+
+
+
+
+
+
     if (ui->TimesysBox->currentIndex()<2)
     {
         flux<<qSetFieldWidth(20)<<left<<"out-timesys"<<qSetFieldWidth(0)<<"="<<"gpst"
@@ -489,10 +582,16 @@ void EditeConfig::Save()
        <<"     # (0:ellipsoidal,1:geodetic)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"out-geoid"<<qSetFieldWidth(0)<<"="<<ui->GeoidBox->currentText()
        <<"     # (0:internal,1:egm96,2:egm08_2.5,3:egm08_1,4:gsi2000)"<<endl;
+
+    flux<<qSetFieldWidth(20)<<left<<"out-solstatic"<<qSetFieldWidth(0)<<"="<<"all"
+       <<"     # (0:all,1:single)"<<endl;
+
     flux<<qSetFieldWidth(20)<<left<<"out-nmeaintv1"<<qSetFieldWidth(0)<<"="<<ui->Nmeaintv1Box->text()
        <<"     # (s)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"out-nmeaintv2"<<qSetFieldWidth(0)<<"="<<ui->Nmeaintv2Box->text()
        <<"     # (s)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"out-outstat"<<qSetFieldWidth(0)<<"="<<ui->OutstatBox->currentText()
+       <<"     # (0:off,1:state,2:residual)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-erratio"<<qSetFieldWidth(0)<<"="<<ui->Eratio1Box->currentText()<<endl;
 //    flux<<qSetFieldWidth(20)<<left<<"stats-eratio2"<<qSetFieldWidth(0)<<"="<<ui->Eratio2Box->currentText()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-errphase"<<qSetFieldWidth(0)<<"="<<ui->ErrphaseBox->currentText()
@@ -503,16 +602,27 @@ void EditeConfig::Save()
        <<"     # (m/10km)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-errdoppler"<<qSetFieldWidth(0)<<"="<<ui->ErrdopplerBox->currentText()
        <<"     # (Hz)"<<endl;
+
+
+    flux<<qSetFieldWidth(20)<<left<<"stats-stdbias"<<qSetFieldWidth(0)<<"=""30"
+       <<"     # (m)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"stats-stdiono"<<qSetFieldWidth(0)<<"="<<"0.03"
+       <<"     # (m)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"stats-stdtrop"<<qSetFieldWidth(0)<<"="<<"0.3"
+       <<"     # (m)"<<endl;
+
+
     flux<<qSetFieldWidth(20)<<left<<"stats-prnaccelh"<<qSetFieldWidth(0)<<"="<<ui->PrnaccelhBox->currentText()
        <<"     # (m/s^2)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-prnaccelv"<<qSetFieldWidth(0)<<"="<<ui->PrnaccelvBox->currentText()
        <<"     # (m/s^2)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-prnbias"<<qSetFieldWidth(0)<<"="<<ui->PrnbiasBox->currentText()
        <<"     # (m)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"stats-prntrop"<<qSetFieldWidth(0)<<"="<<ui->PrntropBox->currentText()
-       <<"     # (m)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"stats-prniono"<<qSetFieldWidth(0)<<"="<<ui->PrnionoBox->currentText()
        <<"     # (m)"<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"stats-prntrop"<<qSetFieldWidth(0)<<"="<<ui->PrntropBox->currentText()
+       <<"     # (m)"<<endl;
+
     flux<<qSetFieldWidth(20)<<left<<"stats-clkstab"<<qSetFieldWidth(0)<<"="<<ui->ClckstabBox->currentText()
        <<"     # (s/s)"<<endl;
 //    if (ui->RovpostypeBox->currentIndex()<2)
@@ -554,17 +664,27 @@ void EditeConfig::Save()
 //    flux<<qSetFieldWidth(20)<<left<<"mysc-fswapmargin"<<qSetFieldWidth(0)<<"="<<ui->FswapmarginBox->currentText()
 //       <<"     # (s)"<<endl;
 //    flux<<qSetFieldWidth(20)<<left<<"misc-proxyadr"<<qSetFieldWidth(0)<<"="<<ui->ProxyadrBox->text()<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"misc-timeinterp"<<qSetFieldWidth(0)<<"="<<"off"
+       <<"     # (0:off,1:on)"<<endl;
+
     flux<<qSetFieldWidth(20)<<left<<"misc-sbasatsel"<<qSetFieldWidth(0)<<"="<<ui->SbasatselBox->text()
        <<"     # (0:all)"<<endl;
 
     flux<<qSetFieldWidth(20)<<left<<"file-satantfile"<<qSetFieldWidth(0)<<"="<<ui->SatantfileBox->text()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"file-rcvantfile"<<qSetFieldWidth(0)<<"="<<ui->RcvantfileBox->text()<<endl;
+
+    flux<<qSetFieldWidth(20)<<left<<"file-staposfile"<<qSetFieldWidth(0)<<"="<<"../RTKBASE/data/station.pos"<<endl;
+
     flux<<qSetFieldWidth(20)<<left<<"file-geoidfile"<<qSetFieldWidth(0)<<"="<<ui->GeoidfileBox->text()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"file-dcbfile"<<qSetFieldWidth(0)<<"="<<ui->DcbfileBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-eopfile"<<qSetFieldWidth(0)<<"="<<ui->EopfileBox->text()<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"file-blqfile"<<qSetFieldWidth(0)<<"="<<ui->BlqfileBox->text()<<endl;
+
+//    flux<<qSetFieldWidth(20)<<left<<"file-eopfile"<<qSetFieldWidth(0)<<"="<<ui->EopfileBox->text()<<endl;
+//    flux<<qSetFieldWidth(20)<<left<<"file-blqfile"<<qSetFieldWidth(0)<<"="<<ui->BlqfileBox->text()<<endl;
     flux<<qSetFieldWidth(20)<<left<<"file-tempdir"<<qSetFieldWidth(0)<<"="<<ui->TempdirBox->text()<<endl;
 
+        flux<<qSetFieldWidth(20)<<left<<"file-geexfile"<<qSetFieldWidth(0)<<"="<<""<<endl;
+        flux<<qSetFieldWidth(20)<<left<<"file-solstatfile"<<qSetFieldWidth(0)<<"="<<""<<endl;
+        flux<<qSetFieldWidth(20)<<left<<"file-tracefile"<<qSetFieldWidth(0)<<"="<<""<<endl;
 
     file.close();
 
@@ -879,8 +999,8 @@ void EditeConfig::Charge(QString filePath)
         else if(decomp[0]=="stats-eratio1") ui->Eratio1Box->setEditText(decomp[1]);
         else if(decomp[0]=="stats-eratio2") ui->Eratio2Box->setEditText(decomp[1]);
         else if(decomp[0]=="stats-errphase") ui->ErrphaseBox->setEditText(decomp[1]);
-        else if(decomp[0]=="stats-errphaseel") ui->ErrphaseblBox->setEditText(decomp[1]);
-        else if(decomp[0]=="stats-errphasebl") ui->ErrphaseelBox->setEditText(decomp[1]);
+        else if(decomp[0]=="stats-errphaseel") ui->ErrphaseelBox->setEditText(decomp[1]);
+        else if(decomp[0]=="stats-errphasebl") ui->ErrphaseblBox->setEditText(decomp[1]);
         else if(decomp[0]=="stats-errdoppler") ui->ErrdopplerBox->setEditText(decomp[1]);
         else if(decomp[0]=="stats-prnaccelh") ui->PrnaccelhBox->setEditText(decomp[1]);
         else if(decomp[0]=="stats-prnaccelv") ui->PrnaccelvBox->setEditText(decomp[1]);
@@ -953,6 +1073,7 @@ void EditeConfig::Charge(QString filePath)
     ChangePosMode(ui->PosmodeBox->currentIndex());
     ChangeSolFormat(ui->SolformatBox->currentIndex());
     ChangeInpstrtype2(ui->Inpstrtype2Box->currentIndex());
+    ChangeInpstrtype3(ui->Inpstrtype3Box->currentIndex());
     ChangeOutstr1type(ui->Outstr1typeBox->currentIndex());
     ChangeLogstr1type(ui->Logstr1typeBox->currentIndex());
 }

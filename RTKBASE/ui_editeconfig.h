@@ -23,8 +23,8 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
+#include <mylineedit.h>
 #include "mycombobox.h"
-#include "mylineedit.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -119,6 +119,26 @@ public:
     QLabel *label_59;
     MyLineEdit *Impstr2PathBox;
     QPushButton *Impstr2PathButton;
+    QComboBox *Inpstrtype1Box;
+    QLabel *label_100;
+    MyLineEdit *Impstr2StreamBox;
+    QLabel *label_101;
+    QPushButton *Impstr2StreamButton;
+    QLabel *label_102;
+    QLabel *label_103;
+    QLabel *label_104;
+    QLabel *label_105;
+    QLabel *label_106;
+    QLabel *label_107;
+    QLabel *label_108;
+    MyLineEdit *Impstr3StreamBox;
+    QComboBox *Inpstrtype3Box;
+    MyComboBox *SerialPort3Box;
+    MyComboBox *Baudrate3Box;
+    MyComboBox *Inpstr3formatBox;
+    MyLineEdit *Impstr3PathBox;
+    QPushButton *Impstr3PathButton;
+    QPushButton *Impstr3StreamButton;
     QWidget *tab;
     QComboBox *Outstr1typeBox;
     MyComboBox *OutstrformatBox;
@@ -292,7 +312,7 @@ public:
         EditeConfig->resize(800, 480);
         lineEdit = new QLineEdit(EditeConfig);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(265, 10, 270, 40));
+        lineEdit->setGeometry(QRect(265, 10, 270, 31));
         QFont font;
         font.setPointSize(16);
         font.setBold(true);
@@ -305,7 +325,7 @@ public:
         lineEdit->setReadOnly(true);
         tabWidget = new QTabWidget(EditeConfig);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(10, 60, 780, 360));
+        tabWidget->setGeometry(QRect(10, 50, 780, 381));
         Setting1Tab = new QWidget();
         Setting1Tab->setObjectName(QStringLiteral("Setting1Tab"));
         PosmodeBox = new QComboBox(Setting1Tab);
@@ -315,11 +335,11 @@ public:
         PosmodeBox->setFrame(true);
         label = new QLabel(Setting1Tab);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 10, 131, 40));
+        label->setGeometry(QRect(50, 10, 131, 40));
         label_2 = new QLabel(Setting1Tab);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setEnabled(true);
-        label_2->setGeometry(QRect(420, 10, 131, 40));
+        label_2->setGeometry(QRect(480, 10, 131, 40));
         FrequencyBox = new QComboBox(Setting1Tab);
         FrequencyBox->setObjectName(QStringLiteral("FrequencyBox"));
         FrequencyBox->setEnabled(true);
@@ -327,20 +347,20 @@ public:
         FrequencyBox->setFrame(true);
         label_3 = new QLabel(Setting1Tab);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(20, 60, 141, 40));
+        label_3->setGeometry(QRect(50, 60, 141, 40));
         label_4 = new QLabel(Setting1Tab);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(420, 60, 141, 40));
+        label_4->setGeometry(QRect(480, 60, 141, 40));
         label_5 = new QLabel(Setting1Tab);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(20, 110, 141, 40));
+        label_5->setGeometry(QRect(50, 110, 141, 40));
         DynamicsBox = new QComboBox(Setting1Tab);
         DynamicsBox->setObjectName(QStringLiteral("DynamicsBox"));
         DynamicsBox->setGeometry(QRect(230, 110, 131, 40));
         DynamicsBox->setFrame(true);
         label_6 = new QLabel(Setting1Tab);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(420, 110, 161, 40));
+        label_6->setGeometry(QRect(480, 110, 121, 40));
         TidecorrBox = new QComboBox(Setting1Tab);
         TidecorrBox->setObjectName(QStringLiteral("TidecorrBox"));
         TidecorrBox->setGeometry(QRect(630, 110, 131, 40));
@@ -548,7 +568,7 @@ public:
         InputTab->setObjectName(QStringLiteral("InputTab"));
         Inpstr1formatBox = new MyComboBox(InputTab);
         Inpstr1formatBox->setObjectName(QStringLiteral("Inpstr1formatBox"));
-        Inpstr1formatBox->setGeometry(QRect(680, 50, 81, 41));
+        Inpstr1formatBox->setGeometry(QRect(650, 30, 81, 31));
         QFont font1;
         font1.setBold(true);
         font1.setWeight(75);
@@ -556,72 +576,143 @@ public:
         Inpstr1formatBox->setEditable(true);
         Baudrate1Box = new MyComboBox(InputTab);
         Baudrate1Box->setObjectName(QStringLiteral("Baudrate1Box"));
-        Baudrate1Box->setGeometry(QRect(400, 51, 91, 41));
+        Baudrate1Box->setGeometry(QRect(470, 30, 101, 31));
         Baudrate1Box->setFont(font1);
         Baudrate1Box->setEditable(true);
         SerialPort1Box = new MyComboBox(InputTab);
         SerialPort1Box->setObjectName(QStringLiteral("SerialPort1Box"));
-        SerialPort1Box->setGeometry(QRect(100, 50, 171, 41));
+        SerialPort1Box->setGeometry(QRect(270, 30, 121, 31));
         SerialPort1Box->setFont(font1);
         SerialPort1Box->setEditable(true);
         label_49 = new QLabel(InputTab);
         label_49->setObjectName(QStringLiteral("label_49"));
-        label_49->setGeometry(QRect(30, 10, 111, 40));
+        label_49->setGeometry(QRect(30, 0, 131, 31));
         label_49->setFont(font1);
         label_50 = new QLabel(InputTab);
         label_50->setObjectName(QStringLiteral("label_50"));
-        label_50->setGeometry(QRect(10, 50, 81, 40));
+        label_50->setGeometry(QRect(190, 30, 81, 31));
         label_51 = new QLabel(InputTab);
         label_51->setObjectName(QStringLiteral("label_51"));
-        label_51->setGeometry(QRect(330, 50, 51, 40));
+        label_51->setGeometry(QRect(420, 30, 51, 31));
         label_52 = new QLabel(InputTab);
         label_52->setObjectName(QStringLiteral("label_52"));
-        label_52->setGeometry(QRect(590, 50, 81, 40));
+        label_52->setGeometry(QRect(590, 30, 61, 31));
         Inpstrtype2Box = new QComboBox(InputTab);
         Inpstrtype2Box->setObjectName(QStringLiteral("Inpstrtype2Box"));
-        Inpstrtype2Box->setGeometry(QRect(100, 140, 171, 41));
+        Inpstrtype2Box->setGeometry(QRect(80, 90, 101, 31));
         Inpstrtype2Box->setFont(font1);
         Inpstrtype2Box->setEditable(false);
         label_53 = new QLabel(InputTab);
         label_53->setObjectName(QStringLiteral("label_53"));
-        label_53->setGeometry(QRect(10, 140, 81, 40));
+        label_53->setGeometry(QRect(40, 90, 41, 31));
         label_54 = new QLabel(InputTab);
         label_54->setObjectName(QStringLiteral("label_54"));
-        label_54->setGeometry(QRect(30, 100, 111, 40));
+        label_54->setGeometry(QRect(30, 60, 131, 31));
         label_54->setFont(font1);
         label_55 = new QLabel(InputTab);
         label_55->setObjectName(QStringLiteral("label_55"));
-        label_55->setGeometry(QRect(330, 200, 51, 40));
+        label_55->setGeometry(QRect(420, 90, 51, 31));
         Inpstr2formatBox = new MyComboBox(InputTab);
         Inpstr2formatBox->setObjectName(QStringLiteral("Inpstr2formatBox"));
-        Inpstr2formatBox->setGeometry(QRect(680, 200, 81, 41));
+        Inpstr2formatBox->setGeometry(QRect(650, 90, 91, 31));
         Inpstr2formatBox->setFont(font1);
         Inpstr2formatBox->setEditable(true);
         Baudrate2Box = new MyComboBox(InputTab);
         Baudrate2Box->setObjectName(QStringLiteral("Baudrate2Box"));
-        Baudrate2Box->setGeometry(QRect(400, 200, 91, 41));
+        Baudrate2Box->setGeometry(QRect(480, 90, 91, 31));
         Baudrate2Box->setFont(font1);
         Baudrate2Box->setEditable(true);
         label_56 = new QLabel(InputTab);
         label_56->setObjectName(QStringLiteral("label_56"));
-        label_56->setGeometry(QRect(590, 200, 81, 40));
+        label_56->setGeometry(QRect(590, 90, 61, 31));
         SerialPort2Box = new MyComboBox(InputTab);
         SerialPort2Box->setObjectName(QStringLiteral("SerialPort2Box"));
-        SerialPort2Box->setGeometry(QRect(100, 200, 171, 41));
+        SerialPort2Box->setGeometry(QRect(280, 90, 121, 31));
         SerialPort2Box->setFont(font1);
         SerialPort2Box->setEditable(true);
         label_57 = new QLabel(InputTab);
         label_57->setObjectName(QStringLiteral("label_57"));
-        label_57->setGeometry(QRect(10, 200, 81, 40));
+        label_57->setGeometry(QRect(200, 90, 81, 31));
         label_59 = new QLabel(InputTab);
         label_59->setObjectName(QStringLiteral("label_59"));
-        label_59->setGeometry(QRect(10, 260, 81, 40));
+        label_59->setGeometry(QRect(20, 130, 81, 31));
         Impstr2PathBox = new MyLineEdit(InputTab);
         Impstr2PathBox->setObjectName(QStringLiteral("Impstr2PathBox"));
-        Impstr2PathBox->setGeometry(QRect(100, 260, 611, 40));
+        Impstr2PathBox->setGeometry(QRect(110, 130, 611, 31));
         Impstr2PathButton = new QPushButton(InputTab);
         Impstr2PathButton->setObjectName(QStringLiteral("Impstr2PathButton"));
-        Impstr2PathButton->setGeometry(QRect(730, 260, 40, 40));
+        Impstr2PathButton->setGeometry(QRect(730, 130, 40, 31));
+        Inpstrtype1Box = new QComboBox(InputTab);
+        Inpstrtype1Box->setObjectName(QStringLiteral("Inpstrtype1Box"));
+        Inpstrtype1Box->setGeometry(QRect(80, 30, 101, 31));
+        Inpstrtype1Box->setFont(font1);
+        Inpstrtype1Box->setEditable(false);
+        label_100 = new QLabel(InputTab);
+        label_100->setObjectName(QStringLiteral("label_100"));
+        label_100->setGeometry(QRect(30, 30, 41, 31));
+        Impstr2StreamBox = new MyLineEdit(InputTab);
+        Impstr2StreamBox->setObjectName(QStringLiteral("Impstr2StreamBox"));
+        Impstr2StreamBox->setGeometry(QRect(110, 170, 611, 31));
+        label_101 = new QLabel(InputTab);
+        label_101->setObjectName(QStringLiteral("label_101"));
+        label_101->setGeometry(QRect(20, 170, 91, 31));
+        Impstr2StreamButton = new QPushButton(InputTab);
+        Impstr2StreamButton->setObjectName(QStringLiteral("Impstr2StreamButton"));
+        Impstr2StreamButton->setGeometry(QRect(730, 170, 40, 31));
+        label_102 = new QLabel(InputTab);
+        label_102->setObjectName(QStringLiteral("label_102"));
+        label_102->setGeometry(QRect(30, 200, 131, 31));
+        label_102->setFont(font1);
+        label_103 = new QLabel(InputTab);
+        label_103->setObjectName(QStringLiteral("label_103"));
+        label_103->setGeometry(QRect(200, 230, 81, 31));
+        label_104 = new QLabel(InputTab);
+        label_104->setObjectName(QStringLiteral("label_104"));
+        label_104->setGeometry(QRect(40, 230, 41, 31));
+        label_105 = new QLabel(InputTab);
+        label_105->setObjectName(QStringLiteral("label_105"));
+        label_105->setGeometry(QRect(20, 310, 91, 31));
+        label_106 = new QLabel(InputTab);
+        label_106->setObjectName(QStringLiteral("label_106"));
+        label_106->setGeometry(QRect(420, 230, 51, 31));
+        label_107 = new QLabel(InputTab);
+        label_107->setObjectName(QStringLiteral("label_107"));
+        label_107->setGeometry(QRect(590, 230, 61, 31));
+        label_108 = new QLabel(InputTab);
+        label_108->setObjectName(QStringLiteral("label_108"));
+        label_108->setGeometry(QRect(20, 270, 81, 31));
+        Impstr3StreamBox = new MyLineEdit(InputTab);
+        Impstr3StreamBox->setObjectName(QStringLiteral("Impstr3StreamBox"));
+        Impstr3StreamBox->setGeometry(QRect(110, 310, 611, 31));
+        Inpstrtype3Box = new QComboBox(InputTab);
+        Inpstrtype3Box->setObjectName(QStringLiteral("Inpstrtype3Box"));
+        Inpstrtype3Box->setGeometry(QRect(80, 230, 101, 31));
+        Inpstrtype3Box->setFont(font1);
+        Inpstrtype3Box->setEditable(false);
+        SerialPort3Box = new MyComboBox(InputTab);
+        SerialPort3Box->setObjectName(QStringLiteral("SerialPort3Box"));
+        SerialPort3Box->setGeometry(QRect(280, 230, 121, 31));
+        SerialPort3Box->setFont(font1);
+        SerialPort3Box->setEditable(true);
+        Baudrate3Box = new MyComboBox(InputTab);
+        Baudrate3Box->setObjectName(QStringLiteral("Baudrate3Box"));
+        Baudrate3Box->setGeometry(QRect(470, 230, 101, 31));
+        Baudrate3Box->setFont(font1);
+        Baudrate3Box->setEditable(true);
+        Inpstr3formatBox = new MyComboBox(InputTab);
+        Inpstr3formatBox->setObjectName(QStringLiteral("Inpstr3formatBox"));
+        Inpstr3formatBox->setGeometry(QRect(650, 230, 81, 31));
+        Inpstr3formatBox->setFont(font1);
+        Inpstr3formatBox->setEditable(true);
+        Impstr3PathBox = new MyLineEdit(InputTab);
+        Impstr3PathBox->setObjectName(QStringLiteral("Impstr3PathBox"));
+        Impstr3PathBox->setGeometry(QRect(110, 270, 611, 31));
+        Impstr3PathButton = new QPushButton(InputTab);
+        Impstr3PathButton->setObjectName(QStringLiteral("Impstr3PathButton"));
+        Impstr3PathButton->setGeometry(QRect(730, 270, 40, 31));
+        Impstr3StreamButton = new QPushButton(InputTab);
+        Impstr3StreamButton->setObjectName(QStringLiteral("Impstr3StreamButton"));
+        Impstr3StreamButton->setGeometry(QRect(730, 310, 40, 31));
         tabWidget->addTab(InputTab, QString());
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
@@ -1278,14 +1369,14 @@ public:
         tabWidget->addTab(MiscTab, QString());
         ReturnButton = new QPushButton(EditeConfig);
         ReturnButton->setObjectName(QStringLiteral("ReturnButton"));
-        ReturnButton->setGeometry(QRect(20, 429, 370, 41));
+        ReturnButton->setGeometry(QRect(20, 439, 370, 31));
         ReturnButton->setFont(font1);
         ReturnButton->setStyleSheet(QLatin1String("border-radius: 15px;\n"
 "border: 1px solid black;\n"
 "background-color: rgb(230, 230, 230);"));
         SaveButton = new QPushButton(EditeConfig);
         SaveButton->setObjectName(QStringLiteral("SaveButton"));
-        SaveButton->setGeometry(QRect(410, 430, 370, 41));
+        SaveButton->setGeometry(QRect(410, 440, 370, 31));
         SaveButton->setFont(font1);
         SaveButton->setStyleSheet(QLatin1String("border-radius: 15px;\n"
 "border: 1px solid black;\n"
@@ -1293,17 +1384,17 @@ public:
 
         retranslateUi(EditeConfig);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
         PosmodeBox->setCurrentIndex(0);
         FrequencyBox->setCurrentIndex(0);
         DynamicsBox->setCurrentIndex(0);
         TidecorrBox->setCurrentIndex(0);
         IonooptBox->setCurrentIndex(0);
         TropoptBox->setCurrentIndex(0);
-        SatephBox->setCurrentIndex(4);
+        SatephBox->setCurrentIndex(0);
         ElmaskBox->setCurrentIndex(0);
         ArmodeBox->setCurrentIndex(0);
-        GloarmodeBox->setCurrentIndex(1);
+        GloarmodeBox->setCurrentIndex(0);
         ArthresBox->setCurrentIndex(2);
         ArlockcntBox->setCurrentIndex(0);
         ArelmaskBox->setCurrentIndex(0);
@@ -1318,6 +1409,7 @@ public:
         Inpstr2formatBox->setCurrentIndex(10);
         Baudrate2Box->setCurrentIndex(1);
         SerialPort2Box->setCurrentIndex(0);
+        SerialPort3Box->setCurrentIndex(0);
         OutstrformatBox->setCurrentIndex(10);
         BaudrateOutBox->setCurrentIndex(1);
         SerialPortOutBox->setCurrentIndex(0);
@@ -1336,10 +1428,10 @@ public:
         PrntropBox->setCurrentIndex(3);
         Eratio2Box->setCurrentIndex(1);
         ErrdopplerBox->setCurrentIndex(1);
-        ErrphaseblBox->setCurrentIndex(2);
+        ErrphaseblBox->setCurrentIndex(0);
         Eratio1Box->setCurrentIndex(1);
         ErrphaseBox->setCurrentIndex(2);
-        ErrphaseelBox->setCurrentIndex(2);
+        ErrphaseelBox->setCurrentIndex(0);
         ClckstabBox->setCurrentIndex(0);
         RovpostypeBox->setCurrentIndex(0);
         RovanttypeBox->setCurrentIndex(0);
@@ -1351,7 +1443,7 @@ public:
         ReconnectBox->setCurrentIndex(2);
         BuffsizeBox->setCurrentIndex(0);
         FswapmarginBox->setCurrentIndex(4);
-        NavmsgselBox->setCurrentIndex(2);
+        NavmsgselBox->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(EditeConfig);
@@ -1363,65 +1455,62 @@ public:
         lineEdit->setText(QApplication::translate("EditeConfig", "EDIT CONFIGURATION", Q_NULLPTR));
         PosmodeBox->clear();
         PosmodeBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Single", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "DGPS/DGNSS", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Kinematic", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Static", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Moving-Base", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Fixed", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "PPP Kinematic", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "PPP Static", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "single", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "dgps", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "kinematic", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "static", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "movingbase", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "fixed", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ppp-kine", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ppp-static", Q_NULLPTR)
         );
         label->setText(QApplication::translate("EditeConfig", "Positionnig Mode", Q_NULLPTR));
         label_2->setText(QApplication::translate("EditeConfig", "Frequencies", Q_NULLPTR));
         FrequencyBox->clear();
         FrequencyBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "L1", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "L1+L2", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "L1+L2+L5", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "l1", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "l1+l2", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "l1+l2+l5", Q_NULLPTR)
         );
         label_3->setText(QApplication::translate("EditeConfig", "Elevation Mask (\302\260)", Q_NULLPTR));
         label_4->setText(QApplication::translate("EditeConfig", "SNR Mask (dBHz)", Q_NULLPTR));
         label_5->setText(QApplication::translate("EditeConfig", "Rec Dynamics", Q_NULLPTR));
         DynamicsBox->clear();
         DynamicsBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "OFF", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "ON", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "on", Q_NULLPTR)
         );
-        label_6->setText(QApplication::translate("EditeConfig", "Earth Tides Correction", Q_NULLPTR));
+        label_6->setText(QApplication::translate("EditeConfig", "Tides Correction", Q_NULLPTR));
         TidecorrBox->clear();
         TidecorrBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "OFF", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Solid", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "on", Q_NULLPTR)
         );
         label_7->setText(QApplication::translate("EditeConfig", "Ionosphere Correction", Q_NULLPTR));
         IonooptBox->clear();
         IonooptBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "OFF", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Broadcast", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "SBAS", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Iono-Free LC", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Estimate STEC", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "IONEX TEC", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "QZSS Broadcast", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "QZSS LEX", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "brdc", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "sbas", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "dual-freq", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "est-stec", Q_NULLPTR)
         );
         label_8->setText(QApplication::translate("EditeConfig", "Troposphere Correction", Q_NULLPTR));
         TropoptBox->clear();
         TropoptBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "OFF", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Saastamoinen", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "SBAS", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Estimate ZTD", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Estimate ZTD+GRAD", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "saas", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "sbas", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "est-ztd", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "est-ztdgrad", Q_NULLPTR)
         );
         SatephBox->clear();
         SatephBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Broadcast", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Precise", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Broadcast+SBAS", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Broadcast+SSR APC", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Broadcast+SSR CoM", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "brdc", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "precise", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "brdc+sbas", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "brdc+ssrapc", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "brdc+ssrcom", Q_NULLPTR)
         );
         label_9->setText(QApplication::translate("EditeConfig", "Satellite Ephemeris/Clock", Q_NULLPTR));
         Posopt1CheckBox->setText(QApplication::translate("EditeConfig", "Sat PCV", Q_NULLPTR));
@@ -1459,16 +1548,16 @@ public:
         label_13->setText(QApplication::translate("EditeConfig", "Integer Ambiguity Resolution (GPS)", Q_NULLPTR));
         ArmodeBox->clear();
         ArmodeBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "OFF", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Continuous", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Instantaneous", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Fix and Hold", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "continuous", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "instantaneous", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "fix-and-hold", Q_NULLPTR)
         );
         GloarmodeBox->clear();
         GloarmodeBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "OFF", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "ON", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Auto calibration", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "on", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "autocal", Q_NULLPTR)
         );
         label_15->setText(QApplication::translate("EditeConfig", "Min Ratio to Fix Ambiguity", Q_NULLPTR));
         ArthresBox->clear();
@@ -1610,21 +1699,22 @@ public:
         SerialPort1Box->clear();
         SerialPort1Box->insertItems(0, QStringList()
          << QApplication::translate("EditeConfig", "ttyACM0", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "AMA0", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "USB0", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ttyAMA0", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ttyUSB0", Q_NULLPTR)
         );
-        label_49->setText(QApplication::translate("EditeConfig", "Input Stream 1", Q_NULLPTR));
+        label_49->setText(QApplication::translate("EditeConfig", "INPUT STREAM 1", Q_NULLPTR));
         label_50->setText(QApplication::translate("EditeConfig", "Serial Port", Q_NULLPTR));
         label_51->setText(QApplication::translate("EditeConfig", "Bauds", Q_NULLPTR));
         label_52->setText(QApplication::translate("EditeConfig", "Format", Q_NULLPTR));
         Inpstrtype2Box->clear();
         Inpstrtype2Box->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Off", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Serial", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "File", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "serial", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "file", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ntripcli", Q_NULLPTR)
         );
         label_53->setText(QApplication::translate("EditeConfig", "Type", Q_NULLPTR));
-        label_54->setText(QApplication::translate("EditeConfig", "Input Stream 2", Q_NULLPTR));
+        label_54->setText(QApplication::translate("EditeConfig", "INPUT STREAM 2", Q_NULLPTR));
         label_55->setText(QApplication::translate("EditeConfig", "Bauds", Q_NULLPTR));
         Inpstr2formatBox->clear();
         Inpstr2formatBox->insertItems(0, QStringList()
@@ -1651,19 +1741,74 @@ public:
         SerialPort2Box->clear();
         SerialPort2Box->insertItems(0, QStringList()
          << QApplication::translate("EditeConfig", "ttyACM0", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "AMA0", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "USB0", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ttyAMA0", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ttyUSB0", Q_NULLPTR)
         );
         label_57->setText(QApplication::translate("EditeConfig", "Serial Port", Q_NULLPTR));
         label_59->setText(QApplication::translate("EditeConfig", "File Path", Q_NULLPTR));
         Impstr2PathBox->setText(QString());
         Impstr2PathButton->setText(QApplication::translate("EditeConfig", "...", Q_NULLPTR));
+        Inpstrtype1Box->clear();
+        Inpstrtype1Box->insertItems(0, QStringList()
+         << QApplication::translate("EditeConfig", "serial", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "file", Q_NULLPTR)
+        );
+        label_100->setText(QApplication::translate("EditeConfig", "Type", Q_NULLPTR));
+        Impstr2StreamBox->setText(QString());
+        label_101->setText(QApplication::translate("EditeConfig", "Stream Path", Q_NULLPTR));
+        Impstr2StreamButton->setText(QApplication::translate("EditeConfig", "...", Q_NULLPTR));
+        label_102->setText(QApplication::translate("EditeConfig", "INPUT STREAM 3", Q_NULLPTR));
+        label_103->setText(QApplication::translate("EditeConfig", "Serial Port", Q_NULLPTR));
+        label_104->setText(QApplication::translate("EditeConfig", "Type", Q_NULLPTR));
+        label_105->setText(QApplication::translate("EditeConfig", "Stream Path", Q_NULLPTR));
+        label_106->setText(QApplication::translate("EditeConfig", "Bauds", Q_NULLPTR));
+        label_107->setText(QApplication::translate("EditeConfig", "Format", Q_NULLPTR));
+        label_108->setText(QApplication::translate("EditeConfig", "File Path", Q_NULLPTR));
+        Impstr3StreamBox->setText(QString());
+        Inpstrtype3Box->clear();
+        Inpstrtype3Box->insertItems(0, QStringList()
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "serial", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "file", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ntripcli", Q_NULLPTR)
+        );
+        SerialPort3Box->clear();
+        SerialPort3Box->insertItems(0, QStringList()
+         << QApplication::translate("EditeConfig", "ttyACM0", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ttyAMA0", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ttyUSB0", Q_NULLPTR)
+        );
+        Baudrate3Box->clear();
+        Baudrate3Box->insertItems(0, QStringList()
+         << QApplication::translate("EditeConfig", "115200", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "57600", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "38400", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "9600", Q_NULLPTR)
+        );
+        Inpstr3formatBox->clear();
+        Inpstr3formatBox->insertItems(0, QStringList()
+         << QApplication::translate("EditeConfig", "ubx", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "nvs", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "oem3", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "nov", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ss2", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "hemis", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "stq", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "javad", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "binex", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "rtcm2", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "rtcm3", Q_NULLPTR)
+        );
+        Impstr3PathBox->setText(QString());
+        Impstr3PathButton->setText(QApplication::translate("EditeConfig", "...", Q_NULLPTR));
+        Impstr3StreamButton->setText(QApplication::translate("EditeConfig", "...", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(InputTab), QApplication::translate("EditeConfig", "Input", Q_NULLPTR));
         Outstr1typeBox->clear();
         Outstr1typeBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Off", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Serial", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "File", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "serial", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "file", Q_NULLPTR)
         );
         OutstrformatBox->clear();
         OutstrformatBox->insertItems(0, QStringList()
@@ -1702,8 +1847,8 @@ public:
         );
         Logstr1typeBox->clear();
         Logstr1typeBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Off", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "File", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "file", Q_NULLPTR)
         );
         label_97->setText(QApplication::translate("EditeConfig", "File Path", Q_NULLPTR));
         Logstr1PathBox->setText(QString());
@@ -1714,16 +1859,16 @@ public:
         label_14->setText(QApplication::translate("EditeConfig", "Solution Format", Q_NULLPTR));
         SolformatBox->clear();
         SolformatBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Lat/Lon/Heigh", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "X/Y/Z-ECEF", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "E/N/U-Baseline", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "NMEA0183", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "llh", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "xyz", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "enu", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "nmea", Q_NULLPTR)
         );
         label_58->setText(QApplication::translate("EditeConfig", "Output Header", Q_NULLPTR));
         OutheadBox->clear();
         OutheadBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "OFF", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "ON", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "on", Q_NULLPTR)
         );
         label_60->setText(QApplication::translate("EditeConfig", "Time Format", Q_NULLPTR));
         label_61->setText(QApplication::translate("EditeConfig", "# of Decimals for Time", Q_NULLPTR));
@@ -1739,17 +1884,15 @@ public:
         );
         TimesysBox->clear();
         TimesysBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "ssssssss.sss GPST", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "hh:mm:ss GPST", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "hh:mm:ss UTC", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "hh:mm:ss JST", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "tow", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "hms", Q_NULLPTR)
         );
         label_62->setText(QApplication::translate("EditeConfig", "Lat / Lon Format", Q_NULLPTR));
         label_63->setText(QApplication::translate("EditeConfig", "Field Separator", Q_NULLPTR));
         DegformBox->clear();
         DegformBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "ddd.dddddddd", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "ddd mm ss.ss", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "deg", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "dms", Q_NULLPTR)
         );
         FieldsepBox->setText(QString());
         label_64->setText(QApplication::translate("EditeConfig", "Height", Q_NULLPTR));
@@ -1759,22 +1902,22 @@ public:
         label_69->setText(QApplication::translate("EditeConfig", "Geoid Model", Q_NULLPTR));
         GeoidBox->clear();
         GeoidBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Internal", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "EGM96 - BE (15\312\272)", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "EGM2008 \342\200\220 SE (2.5\312\272)", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "EGM2008 \342\200\220 SE (1\312\272)", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "GSI2000 (1x1.5\312\272)", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "internal", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "egm96", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "egm08_2.5,3", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "egm08_1,4", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "gsi2000", Q_NULLPTR)
         );
         OutstatBox->clear();
         OutstatBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Off", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "State", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Residual", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "off", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "state", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "residual", Q_NULLPTR)
         );
         HeightBox->clear();
         HeightBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Ellipsoidal", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Geodetic", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "ellipsoidal", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "geodetic", Q_NULLPTR)
         );
         Nmeaintv1Box->setText(QString());
         Nmeaintv2Box->setText(QString());
@@ -1853,6 +1996,7 @@ public:
         );
         ErrphaseblBox->clear();
         ErrphaseblBox->insertItems(0, QStringList()
+         << QApplication::translate("EditeConfig", "0", Q_NULLPTR)
          << QApplication::translate("EditeConfig", "0.001", Q_NULLPTR)
          << QApplication::translate("EditeConfig", "0.002", Q_NULLPTR)
          << QApplication::translate("EditeConfig", "0.003", Q_NULLPTR)
@@ -1885,9 +2029,9 @@ public:
         label_27->setText(QApplication::translate("EditeConfig", "Doppler Frequency (Hz)", Q_NULLPTR));
         ErrphaseelBox->clear();
         ErrphaseelBox->insertItems(0, QStringList()
+         << QApplication::translate("EditeConfig", "0.003", Q_NULLPTR)
          << QApplication::translate("EditeConfig", "0.001", Q_NULLPTR)
          << QApplication::translate("EditeConfig", "0.002", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "0.003", Q_NULLPTR)
          << QApplication::translate("EditeConfig", "0.004", Q_NULLPTR)
          << QApplication::translate("EditeConfig", "0.005", Q_NULLPTR)
          << QApplication::translate("EditeConfig", "0.01", Q_NULLPTR)
@@ -1928,9 +2072,12 @@ public:
         label_71->setText(QApplication::translate("EditeConfig", "<html><head/><body><p><span style=\" font-weight:600;\">Base Station</span></p></body></html>", Q_NULLPTR));
         RovpostypeBox->clear();
         RovpostypeBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Lat/Long/Heigh (deg/m)", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "X/Y/Z-ECEF (m)", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "RTCM Station Position", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "llh", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "xyz", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "single", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "posfile", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "rinexhead", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "rtcm", Q_NULLPTR)
         );
         Rovpos1Box->setText(QApplication::translate("EditeConfig", "0.0000", Q_NULLPTR));
         Rovpos2Box->setText(QApplication::translate("EditeConfig", "0.0000", Q_NULLPTR));
@@ -1958,9 +2105,12 @@ public:
         Bspos1Box->setText(QApplication::translate("EditeConfig", "0.0000", Q_NULLPTR));
         BspostypeBox->clear();
         BspostypeBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "Lat/Long/Heigh (deg/m)", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "X/Y/Z-ECEF (m)", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "RTCM Station Position", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "llh", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "xyz", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "single", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "posfile", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "rinexhead", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "rtcm", Q_NULLPTR)
         );
         label_81->setText(QApplication::translate("EditeConfig", "/", Q_NULLPTR));
         Bspos3Box->setText(QApplication::translate("EditeConfig", "0.000", Q_NULLPTR));
@@ -2029,10 +2179,10 @@ public:
         label_88->setText(QApplication::translate("EditeConfig", "File Swap Margin (s)", Q_NULLPTR));
         NavmsgselBox->clear();
         NavmsgselBox->insertItems(0, QStringList()
-         << QApplication::translate("EditeConfig", "All", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Rover", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Base Station", Q_NULLPTR)
-         << QApplication::translate("EditeConfig", "Correction", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "all", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "rover", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "base", Q_NULLPTR)
+         << QApplication::translate("EditeConfig", "corr", Q_NULLPTR)
         );
         label_89->setText(QApplication::translate("EditeConfig", "Navigation Message Selection", Q_NULLPTR));
         label_90->setText(QApplication::translate("EditeConfig", "HTTP/NTRIP Proxy", Q_NULLPTR));
