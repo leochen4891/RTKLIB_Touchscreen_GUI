@@ -646,7 +646,7 @@ void EditeConfig::Save()
 //    if (ui->BspostypeBox->currentIndex()<2)
         flux<<qSetFieldWidth(20)<<left<<"ant2-postype"<<qSetFieldWidth(0)<<"="<<ui->BspostypeBox->currentText()
        <<"     # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)"<<endl;
-//    else flux<<qSetFieldWidth(20)<<left<<"ant1-postype"<<qSetFieldWidth(0)<<"="<<5
+//    else flux<<qSetFieldWidth(20)<<left<<"ant2-postype"<<qSetFieldWidth(0)<<"="<<5
 //            <<"     # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)"<<endl;
     flux<<qSetFieldWidth(20)<<left<<"ant2-pos1"<<qSetFieldWidth(0)<<"="<<ui->Bspos1Box->text()
        <<"     # (m)"<<endl;
@@ -888,26 +888,61 @@ void EditeConfig::Charge(QString filePath)
             ui->SerialPort1Box->setEditText(path[0]);
             ui->Baudrate1Box->setEditText(path[1]);
         }
-        else if(decomp[0]=="inpstr1-format") ui->Inpstr1formatBox->setEditText(decomp[1]);
+
+
         else if(decomp[0]=="inpstr2-type")
         {
             if((decomp[1]=="0")||(decomp[1]=="off")) ui->Inpstrtype2Box->setCurrentIndex(0);
             else if((decomp[1]=="1")||(decomp[1]=="serial")) ui->Inpstrtype2Box->setCurrentIndex(1);
             else if((decomp[1]=="2")||(decomp[1]=="file")) ui->Inpstrtype2Box->setCurrentIndex(2);
+            else if((decomp[1]=="3")||(decomp[1]=="ntripcli")) ui->Inpstrtype2Box->setCurrentIndex(3);
             else std::cout<<"Valeur de <inpstr2-type> incomprise"<<std::endl;
         }
+
         else if((decomp[0]=="inpstr2-path")&&(decomp[1].size()>0))
         {
-            if (decomp[1].contains(":"))
+            if (decomp[1].contains(":8:n:1:off"))
             {
                 QStringList path = decomp[1].split(":");
                 ui->SerialPort2Box->setEditText(path[0]);
                 ui->Baudrate2Box->setEditText(path[1]);
             }
-            else
-                ui->Impstr2PathBox->setText(decomp[1]);
+
+            else if(decomp[1].contains("/media")) ui->Impstr2PathBox->setText(decomp[1]);
+                 if(decomp[1].contains("@")) ui->Impstr2StreamBox->setText(decomp[1]);                }
+
+
+        else if(decomp[0]=="inpstr3-type")
+        {
+            if((decomp[1]=="0")||(decomp[1]=="off")) ui->Inpstrtype3Box->setCurrentIndex(0);
+            else if((decomp[1]=="1")||(decomp[1]=="serial")) ui->Inpstrtype3Box->setCurrentIndex(1);
+            else if((decomp[1]=="2")||(decomp[1]=="file")) ui->Inpstrtype3Box->setCurrentIndex(2);
+            else if((decomp[1]=="3")||(decomp[1]=="ntripcli")) ui->Inpstrtype3Box->setCurrentIndex(3);
+            else std::cout<<"Valeur de <inpstr3-type> incomprise"<<std::endl;
         }
+
+        else if((decomp[0]=="inpstr3-path")&&(decomp[1].size()>0))
+        {
+             if (decomp[1].contains(":8:n:1:off"))
+            {
+                QStringList path = decomp[1].split(":");
+                ui->SerialPort3Box->setEditText(path[0]);
+                ui->Baudrate3Box->setEditText(path[1]);
+
+            }
+
+
+             else if(decomp[1].contains("/media")) ui->Impstr3PathBox->setText(decomp[1]);
+                  if(decomp[1].contains("@")) ui->Impstr3StreamBox->setText(decomp[1]);                }
+
+
+
+
+
+
+        else if(decomp[0]=="inpstr1-format") ui->Inpstr1formatBox->setEditText(decomp[1]);
         else if(decomp[0]=="inpstr2-format") ui->Inpstr2formatBox->setEditText(decomp[1]);
+        else if(decomp[0]=="inpstr3-format") ui->Inpstr3formatBox->setEditText(decomp[1]);
         else if(decomp[0]=="outstr1-type")
         {
             if((decomp[1]=="0")||(decomp[1]=="off")) ui->Outstr1typeBox->setCurrentIndex(0);
@@ -1039,7 +1074,7 @@ void EditeConfig::Charge(QString filePath)
             if((decomp[1]=="0")||(decomp[1]=="llh")) ui->BspostypeBox->setCurrentIndex(0);
             else if((decomp[1]=="1")||(decomp[1]=="xyz")) ui->BspostypeBox->setCurrentIndex(1);
             else if((decomp[1]=="5")||(decomp[1]=="rtcm")) ui->BspostypeBox->setCurrentIndex(2);
-            else std::cout<<"Valeur de <ant-postype> incomprise"<<std::endl;
+            else std::cout<<"Valeur de <ant2-postype> incomprise"<<std::endl;
         }
         else if(decomp[0]=="ant2-pos1") ui->Bspos1Box->setText(decomp[1]);
         else if(decomp[0]=="ant2-pos2") ui->Bspos2Box->setText(decomp[1]);
