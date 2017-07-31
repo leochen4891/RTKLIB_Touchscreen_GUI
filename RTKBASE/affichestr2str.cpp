@@ -13,7 +13,8 @@ AfficheStr2str::AfficheStr2str(std::vector<string> arga, QWidget *parent) :
 
 {
 
-       args=arga;
+ //      args=arga;
+
 
     ui->setupUi(this);
     /*Displays in FullScreen*/
@@ -78,11 +79,16 @@ AfficheStr2str::AfficheStr2str(std::vector<string> arga, QWidget *parent) :
     string InFormatstr=InFormatext.toStdString() ;
     string RtcmMsgstr=RtcmMsgext.toStdString() ;
 
-if (OutSerialPortstr =="File")
-    std::vector<std::string> args={"carlepremierargesttoujorsleprog","-in",InSerialPortstr+":"+Inbaudstr+":8:n:1:#"+InFormatstr,"-out",OutFilePathstr};
+    if (OutSerialPortstr =="File")
+    {
+        std::vector<std::string> args1={"carlepremierargesttoujorsleprog","-in",InSerialPortstr+":"+Inbaudstr+":8:n:1:#"+InFormatstr,"-out",OutFilePathstr};
+  args=args1;
+    }
   else
-    std::vector<std::string> args={"carlepremierargesttoujorsleprog","-in",InSerialPortstr+":"+Inbaudstr+":8:n:1:#"+InFormatstr,"-out",OutSerialPortstr+":"+Outbaudstr+":8:n:1:#"+OutFormatstr,"-msg",RtcmMsgstr,"-p",latstr,lonstr,hstr};
-
+    {
+    std::vector<std::string> args1={"carlepremierargesttoujorsleprog","-in",InSerialPortstr+":"+Inbaudstr+":8:n:1:#"+InFormatstr,"-out",OutSerialPortstr+":"+Outbaudstr+":8:n:1:#"+OutFormatstr,"-msg",RtcmMsgstr,"-p",latstr,lonstr,hstr};
+  args=args1;
+    }
 
     /*Str2str.c opening options*/
     int sizeArgs=args.size();
@@ -139,12 +145,19 @@ void AfficheStr2str::recupdonneesStr2str(QStringList i)
     {
          if (PositionMode==1) { ui->Msg1lineEdit->setText(QString("AUTOMATIC BASE POSITION picked up from last rover mode"));}
          if (PositionMode==2) { ui->Msg1lineEdit->setText(QString("MANUAL BASE POSITION entered by user"));}
+         if (OutSerialPortext =="File") { ui->Msg1lineEdit->setText(QString("RECORDING RAW DATA FROM GNSS"));}
 
     }
 
+     if ((PositionMode==1) or (PositionMode==2))
+     {
     ui->Msg2lineEdit->setText(QString("LAT = %1 deg   LONG = %2 deg   ALTI= %3 m").arg(m_str1).arg(m_str2).arg(m_str3));
     ui->Msg3lineEdit->setText((i[0]));
-
+     }
+     if (OutSerialPortext =="File")
+     {
+     ui->Msg2lineEdit->setText(QString("WRITTING FILE TO ").append(OutFilePathtext));
+     }
 }
 
 void AfficheStr2str::FermeStr2str()

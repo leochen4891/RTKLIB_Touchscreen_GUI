@@ -540,7 +540,7 @@ background-color: rgb(230, 230, 230);
       </font>
      </property>
      <property name="text">
-      <string>SERIAL PORT</string>
+      <string>OUTPUT PORT</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -810,9 +810,9 @@ border: 1px solid black;</string>
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>50</y>
+       <y>61</y>
        <width>81</width>
-       <height>32</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
@@ -847,7 +847,7 @@ border: 1px solid black;</string>
       </font>
      </property>
      <property name="text">
-      <string>SERIAL PORT</string>
+      <string>INPUT PORT</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -970,7 +970,7 @@ background-color: rgb(230, 230, 230);</string>
       </font>
      </property>
      <property name="text">
-      <string>FILE PATH</string>
+      <string>FILE PATH FOR RAW DATA</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -999,12 +999,12 @@ background-color: rgb(230, 230, 230);</string>
      </property>
      <item>
       <property name="text">
-       <string>/home/francklin/rover.ubx</string>
+       <string>../RTKBASE/PointsFiles/rover.ubx</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>/home/francklin/rover2.ubx</string>
+       <string>/home/pi/rover.ubx</string>
       </property>
      </item>
     </widget>

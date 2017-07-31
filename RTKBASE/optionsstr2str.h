@@ -19,6 +19,7 @@ extern QString RtcmMsgext;
 
 
 
+
 namespace Ui {
 class OptionsStr2str;
 }
