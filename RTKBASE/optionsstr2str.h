@@ -9,6 +9,7 @@
 extern int PositionMode;
 extern QString Outbaudext;
 extern QString OutSerialPortext;
+extern QString OutFilePathtext;
 extern QString OutFormatext;
 extern QString Inbaudext;
 extern QString InSerialPortext;

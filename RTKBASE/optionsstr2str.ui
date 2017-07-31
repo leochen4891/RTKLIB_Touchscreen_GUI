@@ -44,7 +44,7 @@ background-color: rgb(230, 230, 230);</string>
      <x>30</x>
      <y>50</y>
      <width>731</width>
-     <height>241</height>
+     <height>251</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -421,7 +421,7 @@ background-color: rgb(230, 230, 230);
      <property name="geometry">
       <rect>
        <x>550</x>
-       <y>100</y>
+       <y>70</y>
        <width>81</width>
        <height>32</height>
       </rect>
@@ -460,7 +460,7 @@ background-color: rgb(230, 230, 230);
      <property name="geometry">
       <rect>
        <x>390</x>
-       <y>100</y>
+       <y>70</y>
        <width>151</width>
        <height>32</height>
       </rect>
@@ -489,12 +489,17 @@ background-color: rgb(230, 230, 230);
        <string>serial://ttyACM0</string>
       </property>
      </item>
+     <item>
+      <property name="text">
+       <string>File</string>
+      </property>
+     </item>
     </widget>
     <widget class="MyComboBox" name="OutFormatcomboBox">
      <property name="geometry">
       <rect>
        <x>640</x>
-       <y>100</y>
+       <y>70</y>
        <width>71</width>
        <height>32</height>
       </rect>
@@ -523,9 +528,9 @@ background-color: rgb(230, 230, 230);
      <property name="geometry">
       <rect>
        <x>390</x>
-       <y>70</y>
+       <y>51</y>
        <width>151</width>
-       <height>32</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
@@ -548,9 +553,9 @@ background-color: rgb(230, 230, 230);
      <property name="geometry">
       <rect>
        <x>550</x>
-       <y>70</y>
+       <y>51</y>
        <width>81</width>
-       <height>32</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
@@ -573,9 +578,9 @@ background-color: rgb(230, 230, 230);
      <property name="geometry">
       <rect>
        <x>640</x>
-       <y>70</y>
+       <y>51</y>
        <width>71</width>
-       <height>32</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
@@ -598,7 +603,7 @@ background-color: rgb(230, 230, 230);
      <property name="geometry">
       <rect>
        <x>460</x>
-       <y>20</y>
+       <y>10</y>
        <width>201</width>
        <height>32</height>
       </rect>
@@ -628,7 +633,7 @@ border: 1px solid black;</string>
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>20</y>
+       <y>10</y>
        <width>201</width>
        <height>32</height>
       </rect>
@@ -658,7 +663,7 @@ border: 1px solid black;</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>110</y>
+       <y>80</y>
        <width>151</width>
        <height>32</height>
       </rect>
@@ -692,7 +697,7 @@ border: 1px solid black;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>110</y>
+       <y>80</y>
        <width>81</width>
        <height>32</height>
       </rect>
@@ -731,7 +736,7 @@ border: 1px solid black;</string>
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>110</y>
+       <y>80</y>
        <width>81</width>
        <height>32</height>
       </rect>
@@ -805,7 +810,7 @@ border: 1px solid black;</string>
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>80</y>
+       <y>50</y>
        <width>81</width>
        <height>32</height>
       </rect>
@@ -830,9 +835,9 @@ border: 1px solid black;</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>80</y>
+       <y>61</y>
        <width>151</width>
-       <height>32</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
@@ -855,9 +860,9 @@ border: 1px solid black;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>80</y>
+       <y>61</y>
        <width>81</width>
-       <height>32</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
@@ -879,10 +884,10 @@ border: 1px solid black;</string>
     <widget class="QLineEdit" name="lineEdit_15">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>140</y>
-       <width>311</width>
-       <height>32</height>
+       <x>390</x>
+       <y>110</y>
+       <width>321</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="font">
@@ -904,9 +909,9 @@ border: 1px solid black;</string>
     <widget class="MyComboBox" name="RtcmMsgcomboBox">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>170</y>
-       <width>311</width>
+       <x>390</x>
+       <y>128</y>
+       <width>321</width>
        <height>32</height>
       </rect>
      </property>
@@ -949,13 +954,67 @@ background-color: rgb(230, 230, 230);</string>
       <string>UPDATE STREAM  CONFIGURATION</string>
      </property>
     </widget>
+    <widget class="QLineEdit" name="lineEdit_17">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>162</y>
+       <width>321</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>FILE PATH</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="MyComboBox" name="OutFilePathcomboBox">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>180</y>
+       <width>321</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>/home/francklin/rover.ubx</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>/home/francklin/rover2.ubx</string>
+      </property>
+     </item>
+    </widget>
    </widget>
   </widget>
   <widget class="QTextBrowser" name="RtkrcvOptionstextBrowser">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>300</y>
+     <y>310</y>
      <width>591</width>
      <height>81</height>
     </rect>

@@ -72,12 +72,15 @@ AfficheStr2str::AfficheStr2str(std::vector<string> arga, QWidget *parent) :
     string Outbaudstr=Outbaudext.toStdString() ;
     string OutSerialPortstr=OutSerialPortext.toStdString() ;
     string OutFormatstr=OutFormatext.toStdString() ;
+    string OutFilePathstr=OutFilePathtext.toStdString() ;
     string Inbaudstr=Inbaudext.toStdString() ;
     string InSerialPortstr=InSerialPortext.toStdString() ;
     string InFormatstr=InFormatext.toStdString() ;
     string RtcmMsgstr=RtcmMsgext.toStdString() ;
 
-
+if (OutSerialPortstr =="File")
+    std::vector<std::string> args={"carlepremierargesttoujorsleprog","-in",InSerialPortstr+":"+Inbaudstr+":8:n:1:#"+InFormatstr,"-out",OutFilePathstr};
+  else
     std::vector<std::string> args={"carlepremierargesttoujorsleprog","-in",InSerialPortstr+":"+Inbaudstr+":8:n:1:#"+InFormatstr,"-out",OutSerialPortstr+":"+Outbaudstr+":8:n:1:#"+OutFormatstr,"-msg",RtcmMsgstr,"-p",latstr,lonstr,hstr};
 
 
