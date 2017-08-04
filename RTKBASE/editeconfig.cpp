@@ -386,42 +386,42 @@ void EditeConfig::Save()
 
 
 
-    flux<<qSetFieldWidth(20)<<left<<"impstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype1Box->currentText()
+    flux<<qSetFieldWidth(20)<<left<<"inpstr1-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype1Box->currentText()
        <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr2-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype2Box->currentText()
+    flux<<qSetFieldWidth(20)<<left<<"inpstr2-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype2Box->currentText()
        <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr3-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype3Box->currentText()
+    flux<<qSetFieldWidth(20)<<left<<"inpstr3-type"<<qSetFieldWidth(0)<<"="<<ui->Inpstrtype3Box->currentText()
        <<"     # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr1-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort1Box->currentText()
+    flux<<qSetFieldWidth(20)<<left<<"inpstr1-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort1Box->currentText()
        <<":"<<ui->Baudrate1Box->currentText()<<":8:n:1:off"<<endl;
     if (ui->Inpstrtype2Box->currentIndex()==1)
 
-        flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort2Box->currentText()
+        flux<<qSetFieldWidth(20)<<left<<"inpstr2-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort2Box->currentText()
        <<":"<<ui->Baudrate2Box->currentText()<<":8:n:1:off"<<endl;
     if (ui->Inpstrtype2Box->currentIndex()==2)
-        flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr2PathBox->text()<<endl;
+        flux<<qSetFieldWidth(20)<<left<<"inpstr2-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr2PathBox->text()<<endl;
 
     else
-        flux<<qSetFieldWidth(20)<<left<<"impstr2-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr2StreamBox->text()<<endl;
+        flux<<qSetFieldWidth(20)<<left<<"inpstr2-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr2StreamBox->text()<<endl;
 
 
     if (ui->Inpstrtype3Box->currentIndex()==1)
 
-        flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort3Box->currentText()
+        flux<<qSetFieldWidth(20)<<left<<"inpstr3-path"<<qSetFieldWidth(0)<<"="<<ui->SerialPort3Box->currentText()
        <<":"<<ui->Baudrate3Box->currentText()<<":8:n:1:off"<<endl;
     if (ui->Inpstrtype3Box->currentIndex()==2)
-        flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr3PathBox->text()<<endl;
+        flux<<qSetFieldWidth(20)<<left<<"inpstr3-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr3PathBox->text()<<endl;
 
     else
-        flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr3StreamBox->text()<<endl;
+        flux<<qSetFieldWidth(20)<<left<<"inpstr3-path"<<qSetFieldWidth(0)<<"="<<ui->Impstr3StreamBox->text()<<endl;
 
 
-//    flux<<qSetFieldWidth(20)<<left<<"impstr3-path"<<qSetFieldWidth(0)<<"="<<""<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr1-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr1formatBox->currentText()
+//    flux<<qSetFieldWidth(20)<<left<<"inpstr3-path"<<qSetFieldWidth(0)<<"="<<""<<endl;
+    flux<<qSetFieldWidth(20)<<left<<"inpstr1-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr1formatBox->currentText()
        <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr2-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr2formatBox->currentText()
+    flux<<qSetFieldWidth(20)<<left<<"inpstr2-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr2formatBox->currentText()
        <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
-    flux<<qSetFieldWidth(20)<<left<<"impstr3-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr3formatBox->currentText()
+    flux<<qSetFieldWidth(20)<<left<<"inpstr3-format"<<qSetFieldWidth(0)<<"="<<ui->Inpstr3formatBox->currentText()
        <<"     # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:sp3)"<<endl;
 
     flux<<qSetFieldWidth(20)<<left<<"inpstr2-nmeareq"<<qSetFieldWidth(0)<<"="<<"off"<<endl;
@@ -882,6 +882,16 @@ void EditeConfig::Charge(QString filePath)
         else if(decomp[0]=="pos2-niter") ui->NiterBox->setEditText(decomp[1]);
         else if(decomp[0]=="pos2-baselen") ui->BaselenLine->setText(decomp[1]);
         else if(decomp[0]=="pos2-basesig") ui->BasesigLine->setText(decomp[1]);
+
+        else if(decomp[0]=="inpstr1-type")
+        {
+            if((decomp[1]=="0")||(decomp[1]=="off")) ui->Inpstrtype1Box->setCurrentIndex(0);
+            else if((decomp[1]=="1")||(decomp[1]=="serial")) ui->Inpstrtype1Box->setCurrentIndex(1);
+            else if((decomp[1]=="2")||(decomp[1]=="file")) ui->Inpstrtype1Box->setCurrentIndex(2);
+            else if((decomp[1]=="3")||(decomp[1]=="ntripcli")) ui->Inpstrtype1Box->setCurrentIndex(3);
+            else std::cout<<"Valeur de <inpstr1-type> incomprise"<<std::endl;
+        }
+
         else if(decomp[0]=="inpstr1-path")
         {
             QStringList path = decomp[1].split(":");
